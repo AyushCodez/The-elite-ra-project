@@ -7,8 +7,8 @@ ROOT_PATH = str(Path(__file__).parents[1])
 
 # game
 SCREEN_TITLE = "Cast x Space"
-SCREEN_WIDTH = 400
-SCREEN_HEIGHT = 650
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
 TICK_RATE = 60
 
 # fonts

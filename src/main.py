@@ -24,13 +24,14 @@ pygame.display.set_caption(consts.SCREEN_TITLE)
 title = consts.TITLE_FONT.render(consts.SCREEN_TITLE, True, colors.THEME_ALT_LIGHT)
 
 
-def welcome_screen():
+def starting_screen():
     # the main game loop, looped every frame, looped every clock.tick(TICK_RATE)
     is_game_over = False
     mouse_down = False
     while not is_game_over:
 
-        play_button = widgets.TextButton(surface=consts.MAIN_DISPLAY, pos=((consts.SCREEN_WIDTH / 2) - 100, (consts.SCREEN_HEIGHT / 2) - 20),
+        play_button = widgets.TextButton(surface=consts.MAIN_DISPLAY, pos=((consts.SCREEN_WIDTH / 2) - 100,
+                                                                           (consts.SCREEN_HEIGHT / 2) - 20),
                                          width=200, height=40, fg_color=colors.WHITE_COLOR, bg_color=colors.THEME_ALT,
                                          font=consts.BOLD_FONT, text='Play')
 
@@ -48,7 +49,7 @@ def welcome_screen():
             if mouse_down:
                 play_button.toggle_bg(colors.THEME_ALT)
                 print("TODO")
-                return None
+                return level_chooser_screen()
         else:
             play_button.toggle_bg(colors.THEME_ALT)
 
@@ -57,8 +58,25 @@ def welcome_screen():
         consts.CLOCK.tick(consts.TICK_RATE)
 
 
+def level_chooser_screen():
+    consts.MAIN_DISPLAY.fill(colors.THEME_PRIMARY)
+    pygame.display.set_caption(consts.SCREEN_TITLE)
+
+    is_game_over = False
+    while not is_game_over:
+        # gets all the events occurring every frame, which can be mouse movement, mouse click, etc.
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                # quit game if QUIT is invoked
+                is_game_over = True
+
+        # update all the things in game
+        pygame.display.update()
+        consts.CLOCK.tick(consts.TICK_RATE)
+
+
 if __name__ == '__main__':
-    welcome_screen()
+    starting_screen()
 
 pygame.quit()
 sys.exit()
