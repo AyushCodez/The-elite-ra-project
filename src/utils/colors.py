@@ -1,5 +1,6 @@
 import pygame
 
+# TODO: add colors
 # colors
 WHITE_COLOR = (255, 255, 255)
 BLACK_COLOR = (0, 0, 0)
@@ -14,12 +15,3 @@ THEME_ALT_LIGHT = (255, 242, 99)
 THEME_ALT_DARK = (196, 144, 0)
 THEME_ALT_TEXT = (0, 0, 0)
 
-# colors for pegs:
-PEG_WHITE = (255, 255, 255)
-PEG_RED = (231, 87, 79)
-PEG_YELLOW = (255, 219, 63)
-PEG_GREEN = (46, 237, 101)
-PEG_BLACK = (0, 0, 0)
-PEG_BLUE = (32, 120, 237)
-
-PEG_COLOR_LIST = [PEG_WHITE, PEG_RED, PEG_YELLOW, PEG_BLACK, PEG_GREEN, PEG_BLUE]
