@@ -15,3 +15,8 @@ TICK_RATE = 60
 TITLE_FONT = pygame.font.Font(f'{ROOT_PATH}/assets/fonts/SourceSansPro-Regular.ttf', 36)
 BUTTON_FONT = pygame.font.Font(f'{ROOT_PATH}/assets/fonts/SourceSansPro-Regular.ttf', 18)
 BOLD_FONT = pygame.font.Font(f'{ROOT_PATH}/assets/fonts/SourceSansPro-Black.ttf', 24)
+
+# game display and clock
+CLOCK = pygame.time.Clock()
+
+MAIN_DISPLAY = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))

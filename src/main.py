@@ -4,8 +4,8 @@
 
 
 import pygame
-# initialize pygame
 pygame.init()
+
 import sys
 from utils import colors
 from utils import widgets
@@ -15,11 +15,7 @@ import constants as consts
 # init window and clock
 # TODO: set an icon to the game
 
-clock = pygame.time.Clock()
-
-game_display = pygame.display.set_mode((consts.SCREEN_WIDTH, consts.SCREEN_HEIGHT))
-
-game_display.fill(colors.THEME_PRIMARY)
+consts.MAIN_DISPLAY.fill(colors.THEME_PRIMARY)
 pygame.display.set_caption(consts.SCREEN_TITLE)
 
 # TODO: Load settings option from another file
@@ -34,7 +30,7 @@ def welcome_screen():
     mouse_down = False
     while not is_game_over:
 
-        play_button = widgets.TextButton(surface=game_display, pos=((consts.SCREEN_WIDTH / 2) - 100, (consts.SCREEN_HEIGHT / 2) - 20),
+        play_button = widgets.TextButton(surface=consts.MAIN_DISPLAY, pos=((consts.SCREEN_WIDTH / 2) - 100, (consts.SCREEN_HEIGHT / 2) - 20),
                                          width=200, height=40, fg_color=colors.WHITE_COLOR, bg_color=colors.THEME_ALT,
                                          font=consts.BOLD_FONT, text='Play')
 
@@ -58,7 +54,7 @@ def welcome_screen():
 
         # update all the things in game
         pygame.display.update()
-        clock.tick(consts.TICK_RATE)
+        consts.CLOCK.tick(consts.TICK_RATE)
 
 
 if __name__ == '__main__':
