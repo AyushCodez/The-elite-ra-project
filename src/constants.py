@@ -1,3 +1,6 @@
+# Copyright (c) 2020 Ayush Gupta, Kartikey Pandey, Pranjal Rastogi
+# Author: Pranjal Rastogi
+
 import pygame
 from pathlib import Path
 import platform

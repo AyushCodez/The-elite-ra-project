@@ -2,6 +2,7 @@
 # main.py
 # entry point for the application
 
+# Author: Pranjal Rastogi
 
 import pygame
 pygame.init()
@@ -17,10 +18,9 @@ import levelscreen
 # TODO: set an icon to the game
 
 pygame.display.set_caption(consts.SCREEN_TITLE)
-# TODO: Bg image
 consts.MAIN_DISPLAY.blit(consts.TITLE_SCREEN_BACKGROUND_IMAGE, [0, 0])
 
-# TODO: Load game settings from another file
+# TODO: Load game settings from another file (optional)
 
 
 def starting_screen():

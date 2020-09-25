@@ -1,3 +1,6 @@
+# Copyright (c) 2020 Ayush Gupta, Kartikey Pandey, Pranjal Rastogi
+# Author: Pranjal Rastogi
+
 import pygame
 import constants as consts
 from utils import colors
@@ -15,7 +18,6 @@ def level_chooser_screen():
     pygame.draw.line(consts.MAIN_DISPLAY, colors.WHITE_COLOR, (5, 10 + levels_title.get_height()),
                      (consts.SCREEN_WIDTH-10, 10 + levels_title.get_height()), 3)
 
-    # TODO: blit buttons for levels 1 thru 6
     lvl1_button = widgets.TextButton(surface=consts.MAIN_DISPLAY, pos=(10, levels_title.get_height() + 30),
                                      width=50, height=50, fg_color=colors.WHITE_COLOR, bg_color=colors.THEME_ALT,
                                      font=consts.BOLD_FONT, text='1')
@@ -46,7 +48,6 @@ def level_chooser_screen():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_down = True
 
-        # TODO: add button handlers
         if lvl1_button.hovered:
             lvl1_button.toggle_bg(colors.THEME_ALT_DARK)
             if mouse_down:

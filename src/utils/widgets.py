@@ -1,6 +1,6 @@
-"""
-Widgets for the mastermind game
-"""
+# Copyright (c) 2020 Ayush Gupta, Kartikey Pandey, Pranjal Rastogi
+# Author: Pranjal Rastogi
+
 import pygame
 
 

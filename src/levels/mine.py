@@ -1,4 +1,5 @@
-# written by Ayush Gupta
+# Copyright (c) 2020 Ayush Gupta, Kartikey Pandey, Pranjal Rastogi
+# Author: Ayush Gupta
 
 import pygame
 import random

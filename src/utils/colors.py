@@ -1,6 +1,7 @@
-import pygame
+# Copyright (c) 2020 Ayush Gupta, Kartikey Pandey, Pranjal Rastogi
+# Author: Pranjal Rastogi
 
-# TODO: add colors
+# TODO: add more colors
 # colors
 WHITE_COLOR = (255, 255, 255)
 BLACK_COLOR = (0, 0, 0)

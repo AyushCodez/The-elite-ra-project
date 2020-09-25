@@ -8,3 +8,6 @@
 [Flaticon](https://www.flaticon.com)
 - Some icons made by [freepik](https://www.flaticon.com/authors/freepik)
 from [Flaticon](https://www.flaticon.com/)
+
+## copyright
+Copyright (c) 2020 Ayush Gupta, Kartikey Pandey, Pranjal Rastogi
