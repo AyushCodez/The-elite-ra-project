@@ -25,6 +25,7 @@ if platform.system() == "Windows":
     buttonImg = pygame.image.load(fr'{ROOT_PATH}\assets\images\textures\UI\button.png')
     single_meteor_img = pygame.image.load(fr'{ROOT_PATH}\assets\images\textures\nuclear.png')
     single_rock_img = pygame.image.load(fr'{ROOT_PATH}\assets\images\textures\stone.png')
+    single_oil_img = pygame.image.load(fr'{ROOT_PATH}\assets\images\textures\oil.png')
 
 else:
     playerImg = pygame.image.load(fr'{ROOT_PATH}/assets/sprites/test_Drill.png')
@@ -33,6 +34,7 @@ else:
     buttonImg = pygame.image.load(fr'{ROOT_PATH}/assets/images/textures/UI/button.png')
     single_meteor_img = pygame.image.load(fr'{ROOT_PATH}/assets/images/textures/nuclear.png')
     single_rock_img = pygame.image.load(fr'{ROOT_PATH}/assets/images/textures/stone.png')
+    single_oil_img = pygame.image.load(fr'{ROOT_PATH}/assets/images/textures/oil.png')
 
 time1 = 0
 
@@ -44,7 +46,7 @@ meteorImg = []
 meteorX = []
 meteorY = []
 meteorY_change = []
-num_of_meteors = 10
+num_of_meteors = 7
 
 for i in range(num_of_meteors):
     meteorImg.append(single_meteor_img)
@@ -56,13 +58,25 @@ rockImg = []
 rockX = []
 rockY = []
 rockY_change = []
-num_of_rocks = 10
+num_of_rocks = 7
 
 for i in range(num_of_rocks):
     rockImg.append(single_rock_img)
     rockX.append(random.randint(0, 736))
     rockY.append(random.randint(600, 1200))
     rockY_change.append(-3)
+
+oilImg = []
+oilX = []
+oilY = []
+oilY_change = []
+num_of_oils = 7
+
+for i in range(num_of_oils):
+    oilImg.append(single_oil_img)
+    oilX.append(random.randint(0, 736))
+    oilY.append(random.randint(600, 1200))
+    oilY_change.append(-3)
 
 over_font = pygame.font.Font('freesansbold.ttf', 64)
 timer = pygame.font.Font('freesansbold.ttf', 12)
@@ -96,6 +110,10 @@ def meteor(x, y, _):
 
 def rock(x, y, _):
     screen.blit(rockImg[_], (x, y))
+
+
+def oil(x, y, _):
+    screen.blit(oilImg[_], (x, y))
 
 
 def dig(x, y, _):
@@ -183,9 +201,25 @@ while running:
 
                     rock(rockX[i], rockY[i], i)
 
-                    if rockY[i] < -32:
+                    if rockY[i] < -64:
                         rockX[i] = random.randint(0, 736)
                         rockY[i] = random.randint(600, 1200)
+
+                for i in range(num_of_oils):
+
+                    collision = is_collision(oilX[i], oilY[i], playerX, playerY)
+
+                    if collision:
+                        playerY = 2000
+                        game_stat = 'lost'
+
+                    oilY[i] += oilY_change[i]
+
+                    oil(oilX[i], oilY[i], i)
+
+                    if oilY[i] < -32:
+                        oilX[i] = random.randint(0, 736)
+                        oilY[i] = random.randint(600, 1200)
             else:
                 if game_stat1 == 'lost':
                     count = 0
@@ -210,6 +244,10 @@ while running:
                     for i in range(num_of_rocks):
                         rockX[i] = random.randint(0, 736)
                         rockY[i] = random.randint(600, 1200)
+
+                    for i in range(num_of_oils):
+                        oilX[i] = random.randint(0, 736)
+                        oilY[i] = random.randint(600, 1200)
                     button_stat = 'pressed'
                     game_stat = 'win'
                     game_stat1 = 'lost'
@@ -226,7 +264,7 @@ while running:
             count += 3
             pygame.draw.line(screen, (255, 255, 255), (0, 600 - count),
                              (800, 600 - count), 5)
-            show_crystal(268, 640 - count)
+            show_crystal(368, 640 - count)
             if 600 - count < 150:
                 game_over_text('YOU GOT THE CRYSTAL', 10, 250)
                 # END CODE HERE
