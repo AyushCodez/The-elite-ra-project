@@ -1,17 +1,22 @@
 import pygame
 import random
+from pathlib import Path
 
 pygame.init()
+
+clock = pygame.time.Clock()
 
 game_stat = 'win'
 
 screen = pygame.display.set_mode((800, 600))
 
+ROOT_PATH = str(Path(__file__).parents[2])
+
 pygame.display.set_caption('Mine')
 
-background = pygame.image.load(r'C:\Users\Ayush\Documents\GitHub\The-elite-ra-project\assets\images\bg\mine.png')
+background = pygame.image.load(fr'{ROOT_PATH}\assets\images\bg\mine.png')
 
-playerImg = pygame.image.load(r'C:\Users\Ayush\Documents\GitHub\The-elite-ra-project\assets\sprites\test_Drill.png')
+playerImg = pygame.image.load(fr'{ROOT_PATH}\assets\sprites\test_Drill.png')
 playerX = 370
 playerY = 30
 playerX_change = 0
@@ -25,7 +30,7 @@ num_of_meteors = 5
 for i in range(num_of_meteors):
     meteorImg.append(
         pygame.image.load(
-            r'C:\Users\Ayush\Documents\GitHub\The-elite-ra-project\assets\images\textures\nuclear.png'))
+            fr'{ROOT_PATH}\assets\images\textures\nuclear.png'))
     meteorX.append(random.randint(0, 736))
     meteorY.append(random.randint(600, 800))
     meteorY_change.append(-3)
@@ -42,7 +47,7 @@ def is_collision(x1, y1, x2, y2):
 
 
 buttonImg = pygame.image.load(
-    r'C:\Users\Ayush\Documents\GitHub\The-elite-ra-project\assets\images\textures\UI\button.png')
+    fr'{ROOT_PATH}\assets\images\textures\UI\button.png')
 
 button = pygame.Rect((368, 268), (64, 64))
 
@@ -134,3 +139,4 @@ while running:
         playerX += playerX_change
         player(playerX, playerY)
     pygame.display.update()
+    clock.tick(60)
