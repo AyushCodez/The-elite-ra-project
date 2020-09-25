@@ -19,6 +19,7 @@ pygame.display.set_caption(consts.SCREEN_TITLE)
 # TODO: Bg image
 # TITLE_SCREEN_BACKGROUND_IMAGE = pygame.image.load(f"{consts.ROOT_PATH}/assets/images/bg/bg.png").convert()
 # consts.MAIN_DISPLAY.blit(TITLE_SCREEN_BACKGROUND_IMAGE, [0, 0])
+consts.MAIN_DISPLAY.fill(colors.BLACK_COLOR) # TODO: remove
 
 # TODO: Load game settings from another file
 
@@ -50,7 +51,6 @@ def starting_screen():
             play_button.toggle_bg(colors.THEME_ALT_DARK)
             if mouse_down:
                 play_button.toggle_bg(colors.THEME_ALT)
-                print("TODO")
                 return level_chooser_screen()
         else:
             play_button.toggle_bg(colors.THEME_ALT)
@@ -61,8 +61,11 @@ def starting_screen():
 
 
 def level_chooser_screen():
-    consts.MAIN_DISPLAY.fill(colors.THEME_ALT)
     pygame.display.set_caption(consts.SCREEN_TITLE)
+    consts.MAIN_DISPLAY.fill(colors.BLACK_COLOR)  # TODO: replace with image!
+    # TODO: blit image for LEVELS TITLE
+
+    # TODO: blit buttons for levels 1 thru 6
 
     is_game_over = False
     while not is_game_over:
@@ -71,6 +74,8 @@ def level_chooser_screen():
             if event.type == pygame.QUIT:
                 # quit game if QUIT is invoked
                 is_game_over = True
+
+        # TODO: add button handlers
 
         # update all the things in game
         pygame.display.update()
