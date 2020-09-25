@@ -30,6 +30,7 @@ else:
     single_oil_img = pygame.image.load(fr'{consts.ROOT_PATH}/assets/images/textures/oil.png')
 
 time1 = 0
+count = 0
 
 playerX = 370
 playerY = 150
@@ -131,7 +132,7 @@ def display_time(timern):
 
 def mine_level():
     running = True
-    global playerX_change, button_stat, time1, game_stat1, game_stat, playerY, playerX, digX, digY
+    global playerX_change, button_stat, time1, game_stat1, game_stat, playerY, playerX, digX, digY, count
     while running:
 
         # TODO: replace with colors.BROWN
@@ -142,10 +143,10 @@ def mine_level():
                 running = False
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_a:
                     playerX_change = -3
 
-                if event.key == pygame.K_RIGHT:
+                if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
                     playerX_change = 3
 
             if event.type == pygame.KEYUP:
