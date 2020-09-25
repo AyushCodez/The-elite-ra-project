@@ -51,9 +51,49 @@ def level_chooser_screen():
             lvl1_button.toggle_bg(colors.THEME_ALT_DARK)
             if mouse_down:
                 lvl1_button.toggle_bg(colors.THEME_ALT)
-                return mine.mine_level()
+                print("NO")
         else:
             lvl1_button.toggle_bg(colors.THEME_ALT)
+
+        if lvl2_button.hovered:
+            lvl2_button.toggle_bg(colors.THEME_ALT_DARK)
+            if mouse_down:
+                lvl2_button.toggle_bg(colors.THEME_ALT)
+                print("NO")
+        else:
+            lvl2_button.toggle_bg(colors.THEME_ALT)
+
+        if lvl3_button.hovered:
+            lvl3_button.toggle_bg(colors.THEME_ALT_DARK)
+            if mouse_down:
+                lvl3_button.toggle_bg(colors.THEME_ALT)
+                return mine.mine_level()
+        else:
+            lvl3_button.toggle_bg(colors.THEME_ALT)
+
+        if lvl4_button.hovered:
+            lvl4_button.toggle_bg(colors.THEME_ALT_DARK)
+            if mouse_down:
+                lvl4_button.toggle_bg(colors.THEME_ALT)
+                print("NO")
+        else:
+            lvl4_button.toggle_bg(colors.THEME_ALT)
+
+        if lvl5_button.hovered:
+            lvl5_button.toggle_bg(colors.THEME_ALT_DARK)
+            if mouse_down:
+                lvl5_button.toggle_bg(colors.THEME_ALT)
+                print("NO")
+        else:
+            lvl5_button.toggle_bg(colors.THEME_ALT)
+
+        if lvl6_button.hovered:
+            lvl6_button.toggle_bg(colors.THEME_ALT_DARK)
+            if mouse_down:
+                lvl6_button.toggle_bg(colors.THEME_ALT)
+                print("NO")
+        else:
+            lvl6_button.toggle_bg(colors.THEME_ALT)
 
         # update all the things in game
         pygame.display.update()
