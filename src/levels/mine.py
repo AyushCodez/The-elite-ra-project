@@ -2,6 +2,7 @@ import pygame
 import random
 from pathlib import Path
 import time
+import platform
 
 pygame.init()
 
@@ -17,7 +18,19 @@ ROOT_PATH = str(Path(__file__).parents[2])
 
 pygame.display.set_caption('Mine')
 
-playerImg = pygame.image.load(fr'{ROOT_PATH}\assets\sprites\test_Drill.png')
+if platform.system() == "Windows":
+    playerImg = pygame.image.load(fr'{ROOT_PATH}\assets\sprites\test_Drill.png')
+    digImg = pygame.image.load(fr'{ROOT_PATH}\assets\images\textures\digmark.png')
+    crystal = pygame.image.load(fr'{ROOT_PATH}\assets\images\textures\crystal.png')
+    buttonImg = pygame.image.load(fr'{ROOT_PATH}\assets\images\textures\UI\button.png')
+    single_meteor_img = pygame.image.load(fr'{ROOT_PATH}\assets\images\textures\nuclear.png')
+
+else:
+    playerImg = pygame.image.load(fr'{ROOT_PATH}/assets/sprites/test_Drill.png')
+    digImg = pygame.image.load(fr'{ROOT_PATH}/assets/images/textures/digmark.png')
+    crystal = pygame.image.load(fr'{ROOT_PATH}/assets/images/textures/crystal.png')
+    buttonImg = pygame.image.load(fr'{ROOT_PATH}/assets/images/textures/UI/button.png')
+    single_meteor_img = pygame.image.load(fr'{ROOT_PATH}/assets/images/textures/nuclear.png')
 playerX = 370
 playerY = 150
 playerX_change = 0
@@ -31,7 +44,7 @@ num_of_meteors = 5
 time1 = 0
 
 for i in range(num_of_meteors):
-    meteorImg.append(pygame.image.load(fr'{ROOT_PATH}\assets\images\textures\nuclear.png'))
+    meteorImg.append(single_meteor_img)
     meteorX.append(random.randint(0, 736))
     meteorY.append(random.randint(600, 800))
     meteorY_change.append(-3)
@@ -39,11 +52,8 @@ for i in range(num_of_meteors):
 over_font = pygame.font.Font('freesansbold.ttf', 64)
 timer = pygame.font.Font('freesansbold.ttf', 12)
 
-digImg = pygame.image.load(fr'{ROOT_PATH}\assets\images\textures\digmark.png')
 digX = [playerX]
 digY = [i for i in range(playerY - 31, -64, -3)]
-
-crystal = pygame.image.load(fr'{ROOT_PATH}\assets\images\textures\crystal.png')
 
 
 def is_collision(x1, y1, x2, y2):
@@ -53,9 +63,6 @@ def is_collision(x1, y1, x2, y2):
     else:
         return False
 
-
-buttonImg = pygame.image.load(
-    fr'{ROOT_PATH}\assets\images\textures\UI\button.png')
 
 button = pygame.Rect((368, 268), (64, 64))
 
@@ -84,9 +91,9 @@ def show_crystal(x, y):
     screen.blit(crystal, (x, y))
 
 
-def game_over_text(text):
+def game_over_text(text, x, y):
     gameover = over_font.render(text, True, (255, 255, 255))
-    screen.blit(gameover, (200, 250))
+    screen.blit(gameover, (x, y))
 
 
 def display_time(timern):
@@ -155,7 +162,7 @@ while running:
                 playerX = 0
 
         if game_stat == 'lost':
-            game_over_text('GAME OVER')
+            game_over_text('GAME OVER', 200, 250)
             display_button()
             if pygame.mouse.get_pressed()[0]:
                 a = pygame.mouse.get_pos()[0]
@@ -183,8 +190,8 @@ while running:
                              (800, 600 - count), 5)
             show_crystal(268, 640 - count)
             if 600 - count < 150:
-                game_over_text('YOU GOT THE CRYSTAL')
-                #END CODE HERE
+                game_over_text('YOU GOT THE CRYSTAL', 10, 250)
+                # END CODE HERE
         player(playerX, playerY)
     pygame.display.update()
     clock.tick(60)
