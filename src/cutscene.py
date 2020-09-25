@@ -7,6 +7,7 @@ import pygame
 import time
 import levelscreen
 
+# TODO: implement
 
 def cut_scene():
     consts.MAIN_DISPLAY.blit(consts.TITLE_SCREEN_BACKGROUND_IMAGE, [0, 0])
