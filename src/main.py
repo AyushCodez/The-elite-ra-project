@@ -16,8 +16,9 @@ import constants as consts
 # TODO: set an icon to the game
 
 pygame.display.set_caption(consts.SCREEN_TITLE)
-TITLE_SCREEN_BACKGROUND_IMAGE = pygame.image.load(f"{consts.ROOT_PATH}/assets/images/bg/bg.png").convert()
-consts.MAIN_DISPLAY.blit(TITLE_SCREEN_BACKGROUND_IMAGE, [0, 0])
+# TODO: Bg image
+# TITLE_SCREEN_BACKGROUND_IMAGE = pygame.image.load(f"{consts.ROOT_PATH}/assets/images/bg/bg.png").convert()
+# consts.MAIN_DISPLAY.blit(TITLE_SCREEN_BACKGROUND_IMAGE, [0, 0])
 
 # TODO: Load game settings from another file
 
