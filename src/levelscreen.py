@@ -6,6 +6,7 @@ import constants as consts
 from utils import colors
 from utils import widgets
 from levels import mine
+from levels import maze
 
 btn6disabled = False
 btn5disabled = False
@@ -66,8 +67,8 @@ def level_chooser_screen():
                 lvl1_button.toggle_bg(colors.THEME_ALT_DARK)
                 if mouse_down:
                     lvl1_button.toggle_bg(colors.THEME_ALT)
-                    # TODO: return level
                     btn1disabled = True
+                    return maze.maze_level()
             else:
                 lvl1_button.toggle_bg(colors.THEME_ALT)
         else:
