@@ -15,10 +15,11 @@ import constants as consts
 # init window and clock
 # TODO: set an icon to the game
 
-consts.MAIN_DISPLAY.fill(colors.THEME_PRIMARY)
 pygame.display.set_caption(consts.SCREEN_TITLE)
+TITLE_SCREEN_BACKGROUND_IMAGE = pygame.image.load(f"{consts.ROOT_PATH}/assets/images/bg/bg.png").convert()
+consts.MAIN_DISPLAY.blit(TITLE_SCREEN_BACKGROUND_IMAGE, [0, 0])
 
-# TODO: Load settings option from another file
+# TODO: Load game settings from another file
 
 # this can be static, doesnt need to be remade each time game is run, but, it is remade...
 title = consts.TITLE_FONT.render(consts.SCREEN_TITLE, True, colors.THEME_ALT_LIGHT)
@@ -59,7 +60,7 @@ def starting_screen():
 
 
 def level_chooser_screen():
-    consts.MAIN_DISPLAY.fill(colors.THEME_PRIMARY)
+    consts.MAIN_DISPLAY.fill(colors.THEME_ALT)
     pygame.display.set_caption(consts.SCREEN_TITLE)
 
     is_game_over = False
