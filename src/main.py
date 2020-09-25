@@ -5,13 +5,13 @@
 # Author: Pranjal Rastogi
 
 import pygame
+pygame.init()
+
 import sys
 from utils import colors
 from utils import widgets
 import constants as consts
 import levelscreen
-
-pygame.init()
 
 
 # init window and clock
