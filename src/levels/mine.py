@@ -150,7 +150,7 @@ def mine_level():
                     playerX_change = 3
 
             if event.type == pygame.KEYUP:
-                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT or event.key == pygame.K_a or event.key == pygame.K_d:
                     playerX_change = 0
 
         if button_stat == 'free' or button_stat == 'free1':
