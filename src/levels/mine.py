@@ -24,6 +24,7 @@ if platform.system() == "Windows":
     crystal = pygame.image.load(fr'{ROOT_PATH}\assets\images\textures\crystal.png')
     buttonImg = pygame.image.load(fr'{ROOT_PATH}\assets\images\textures\UI\button.png')
     single_meteor_img = pygame.image.load(fr'{ROOT_PATH}\assets\images\textures\nuclear.png')
+    single_rock_img = pygame.image.load(fr'{ROOT_PATH}\assets\images\textures\stone.png')
 
 else:
     playerImg = pygame.image.load(fr'{ROOT_PATH}/assets/sprites/test_Drill.png')
@@ -31,6 +32,10 @@ else:
     crystal = pygame.image.load(fr'{ROOT_PATH}/assets/images/textures/crystal.png')
     buttonImg = pygame.image.load(fr'{ROOT_PATH}/assets/images/textures/UI/button.png')
     single_meteor_img = pygame.image.load(fr'{ROOT_PATH}/assets/images/textures/nuclear.png')
+    single_rock_img = pygame.image.load(fr'{ROOT_PATH}/assets/images/textures/stone.png')
+
+time1 = 0
+
 playerX = 370
 playerY = 150
 playerX_change = 0
@@ -39,15 +44,25 @@ meteorImg = []
 meteorX = []
 meteorY = []
 meteorY_change = []
-num_of_meteors = 5
-
-time1 = 0
+num_of_meteors = 10
 
 for i in range(num_of_meteors):
     meteorImg.append(single_meteor_img)
     meteorX.append(random.randint(0, 736))
-    meteorY.append(random.randint(600, 800))
+    meteorY.append(random.randint(600, 1200))
     meteorY_change.append(-3)
+
+rockImg = []
+rockX = []
+rockY = []
+rockY_change = []
+num_of_rocks = 10
+
+for i in range(num_of_rocks):
+    rockImg.append(single_rock_img)
+    rockX.append(random.randint(0, 736))
+    rockY.append(random.randint(600, 1200))
+    rockY_change.append(-3)
 
 over_font = pygame.font.Font('freesansbold.ttf', 64)
 timer = pygame.font.Font('freesansbold.ttf', 12)
@@ -77,6 +92,10 @@ def player(x, y):
 
 def meteor(x, y, _):
     screen.blit(meteorImg[_], (x, y))
+
+
+def rock(x, y, _):
+    screen.blit(rockImg[_], (x, y))
 
 
 def dig(x, y, _):
@@ -150,7 +169,23 @@ while running:
 
                     if meteorY[i] < -32:
                         meteorX[i] = random.randint(0, 736)
-                        meteorY[i] = random.randint(600, 800)
+                        meteorY[i] = random.randint(600, 1200)
+
+                for i in range(num_of_rocks):
+
+                    collision = is_collision(rockX[i], rockY[i], playerX, playerY)
+
+                    if collision:
+                        playerY = 2000
+                        game_stat = 'lost'
+
+                    rockY[i] += rockY_change[i]
+
+                    rock(rockX[i], rockY[i], i)
+
+                    if rockY[i] < -32:
+                        rockX[i] = random.randint(0, 736)
+                        rockY[i] = random.randint(600, 1200)
             else:
                 if game_stat1 == 'lost':
                     count = 0
@@ -171,7 +206,10 @@ while running:
                     time1 = time.time()
                     for i in range(num_of_meteors):
                         meteorX[i] = random.randint(0, 736)
-                        meteorY[i] = random.randint(600, 800)
+                        meteorY[i] = random.randint(600, 1200)
+                    for i in range(num_of_rocks):
+                        rockX[i] = random.randint(0, 736)
+                        rockY[i] = random.randint(600, 1200)
                     button_stat = 'pressed'
                     game_stat = 'win'
                     game_stat1 = 'lost'
