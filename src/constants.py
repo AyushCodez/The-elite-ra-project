@@ -13,7 +13,7 @@ SCREEN_HEIGHT = 600
 TICK_RATE = 60
 CLOCK = pygame.time.Clock()
 MAIN_DISPLAY = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-
+TITLE_SCREEN_BACKGROUND_IMAGE = pygame.image.load(f"{ROOT_PATH}/assets/images/bg/bg.png").convert()
 
 # fonts
 if platform.system() == "Windows":

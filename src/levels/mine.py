@@ -6,6 +6,7 @@ import time
 import platform
 import constants as consts
 from utils import colors
+import cutscene
 
 game_stat = 'win'
 
@@ -256,6 +257,7 @@ def mine_level():
                 if 600 - count < 150:
                     game_over_text('YOU GOT THE CRYSTAL', 10, 250)
                     # END CODE HERE
+                    return cutscene.cut_scene()
             player(playerX, playerY)
         pygame.display.update()
         consts.CLOCK.tick(60)
