@@ -135,8 +135,7 @@ def mine_level():
     global playerX_change, button_stat, time1, game_stat1, game_stat, playerY, playerX, digX, digY, count
     while running:
 
-        # TODO: replace with colors.BROWN
-        consts.MAIN_DISPLAY.fill((150, 80, 30))
+        consts.MAIN_DISPLAY.fill(colors.BROWN_COLOR)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
