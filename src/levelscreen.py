@@ -24,7 +24,7 @@ def level_chooser_screen():
     consts.MAIN_DISPLAY.blit(levels_title, (40, 10))
 
     pygame.draw.line(consts.MAIN_DISPLAY, colors.WHITE_COLOR, (5, 10 + levels_title.get_height()),
-                     (consts.SCREEN_WIDTH-10, 10 + levels_title.get_height()), 3)
+                     (consts.SCREEN_WIDTH - 10, 10 + levels_title.get_height()), 3)
 
     lvl1_button = widgets.TextButton(surface=consts.MAIN_DISPLAY, pos=(10, levels_title.get_height() + 30),
                                      width=50, height=50, fg_color=colors.WHITE_COLOR, bg_color=colors.THEME_ALT,

@@ -72,7 +72,6 @@ for i in range(num_of_oils):
     oilY.append(random.randint(600, 1200))
     oilY_change.append(-3)
 
-
 digX = [playerX]
 digY = [i for i in range(playerY - 31, -64, -3)]
 

@@ -5,13 +5,13 @@
 # Author: Pranjal Rastogi
 
 import pygame
-pygame.init()
-
 import sys
 from utils import colors
 from utils import widgets
 import constants as consts
 import levelscreen
+
+pygame.init()
 
 
 # init window and clock
@@ -20,11 +20,11 @@ import levelscreen
 pygame.display.set_caption(consts.SCREEN_TITLE)
 consts.MAIN_DISPLAY.blit(consts.TITLE_SCREEN_BACKGROUND_IMAGE, [0, 0])
 
+
 # TODO: Load game settings from another file (optional)
 
 
 def starting_screen():
-
     play_button = widgets.TextButton(surface=consts.MAIN_DISPLAY, pos=((consts.SCREEN_WIDTH / 2) - 100,
                                                                        (consts.SCREEN_HEIGHT / 2) - 20),
                                      width=200, height=40, fg_color=colors.WHITE_COLOR, bg_color=colors.THEME_ALT,
