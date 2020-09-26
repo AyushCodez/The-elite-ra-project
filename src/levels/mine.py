@@ -15,7 +15,7 @@ import time
 game_stat = 'win'
 
 if platform.system() == "Windows":
-    playerImg = pygame.image.load(fr'{consts.ROOT_PATH}\assets\sprites\test_Drill.png')
+    playerImg = pygame.image.load(fr'{consts.ROOT_PATH}\assets\sprites\drill.png')
     digImg = pygame.image.load(fr'{consts.ROOT_PATH}\assets\images\textures\digmark.png')
     crystal = pygame.image.load(fr'{consts.ROOT_PATH}\assets\images\textures\crystal.png')
     buttonImg = pygame.image.load(fr'{consts.ROOT_PATH}\assets\images\textures\UI\button.png')
@@ -24,7 +24,7 @@ if platform.system() == "Windows":
     single_oil_img = pygame.image.load(fr'{consts.ROOT_PATH}\assets\images\textures\oil.png')
 
 else:
-    playerImg = pygame.image.load(fr'{consts.ROOT_PATH}/assets/sprites/test_Drill.png')
+    playerImg = pygame.image.load(fr'{consts.ROOT_PATH}/assets/sprites/drill.png')
     digImg = pygame.image.load(fr'{consts.ROOT_PATH}/assets/images/textures/digmark.png')
     crystal = pygame.image.load(fr'{consts.ROOT_PATH}/assets/images/textures/crystal.png')
     buttonImg = pygame.image.load(fr'{consts.ROOT_PATH}/assets/images/textures/UI/button.png')
