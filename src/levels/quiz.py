@@ -90,74 +90,76 @@ def Main():
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     carryOn = False
+                if ( c <= 4 ):
+                    if y >=550 and y<=600:
+                        if event.type == pygame.KEYDOWN:
 
-                if y >=550 and y<=600:
-                    if event.type == pygame.KEYDOWN:
-
-                        if event.key == pygame.K_a:
-                            st = st + "a"
-                        elif event.key == pygame.K_b:
-                            st = st + "b"
-                        elif event.key == pygame.K_c:
-                            st = st + "c"
-                        elif event.key == pygame.K_d:
-                            st = st + "d"
-                        elif event.key == pygame.K_e:
-                            st = st + "e"
-                        elif event.key == pygame.K_f:
-                            st = st + "f"
-                        elif event.key == pygame.K_g:
-                            st = st + "g"
-                        elif event.key == pygame.K_h:
-                            st = st + "h"
-                        elif event.key == pygame.K_i:
-                            st = st + "i"
-                        elif event.key == pygame.K_j:
-                            st = st + "j"
-                        elif event.key == pygame.K_k:
-                            st = st + "k"
-                        elif event.key == pygame.K_l:
-                            st = st + "l"
-                        elif event.key == pygame.K_m:
-                            st = st + "m"
-                        elif event.key == pygame.K_n:
-                            st = st + "n"
-                        elif event.key == pygame.K_o:
-                            st = st + "o"
-                        elif event.key == pygame.K_p:
-                            st = st + "p"
-                        elif event.key == pygame.K_q:
-                            st = st + "q"
-                        elif event.key == pygame.K_r:
-                            st = st + "r"
-                        elif event.key == pygame.K_s:
-                            st = st + "s"
-                        elif event.key == pygame.K_t:
-                            st = st + "t"
-                        elif event.key == pygame.K_u:
-                            st = st + "u"
-                        elif event.key == pygame.K_v:
-                            st = st + "v"
-                        elif event.key == pygame.K_w:
-                            st = st + "w"
-                        elif event.key == pygame.K_x:
-                            st = st + "x"
-                        elif event.key == pygame.K_y:
-                            st = st + "y"
-                        elif event.key == pygame.K_z:
-                            st = st + "z"
-                        elif event.key == pygame.K_BACKSPACE:
-                            st = st[:-1]
-                        elif event.key == pygame.K_RETURN:
-                            k = Answer(st , c)
-                            if k:
-                                c = c+1
-                                st = ""
-                            else :
-                                c = 0
-                                st = ""
-                                Main()
-                        gg , ggRect = UT(st)
+                            if event.key == pygame.K_a:
+                                st = st + "a"
+                            elif event.key == pygame.K_b:
+                                st = st + "b"
+                            elif event.key == pygame.K_c:
+                                st = st + "c"
+                            elif event.key == pygame.K_d:
+                                st = st + "d"
+                            elif event.key == pygame.K_e:
+                                st = st + "e"
+                            elif event.key == pygame.K_f:
+                                st = st + "f"
+                            elif event.key == pygame.K_g:
+                                st = st + "g"
+                            elif event.key == pygame.K_h:
+                                st = st + "h"
+                            elif event.key == pygame.K_i:
+                                st = st + "i"
+                            elif event.key == pygame.K_j:
+                                st = st + "j"
+                            elif event.key == pygame.K_k:
+                                st = st + "k"
+                            elif event.key == pygame.K_l:
+                                st = st + "l"
+                            elif event.key == pygame.K_m:
+                                st = st + "m"
+                            elif event.key == pygame.K_n:
+                                st = st + "n"
+                            elif event.key == pygame.K_o:
+                                st = st + "o"
+                            elif event.key == pygame.K_p:
+                                st = st + "p"
+                            elif event.key == pygame.K_q:
+                                st = st + "q"
+                            elif event.key == pygame.K_r:
+                                st = st + "r"
+                            elif event.key == pygame.K_s:
+                                st = st + "s"
+                            elif event.key == pygame.K_t:
+                                st = st + "t"
+                            elif event.key == pygame.K_u:
+                                st = st + "u"
+                            elif event.key == pygame.K_v:
+                                st = st + "v"
+                            elif event.key == pygame.K_w:
+                                st = st + "w"
+                            elif event.key == pygame.K_x:
+                                st = st + "x"
+                            elif event.key == pygame.K_y:
+                                st = st + "y"
+                            elif event.key == pygame.K_z:
+                                st = st + "z"
+                            elif event.key == pygame.K_BACKSPACE:
+                                st = st[:-1]
+                            elif event.key == pygame.K_RETURN:
+                                k = Answer(st , c)
+                                if k:
+                                    c = c+1
+                                    st = ""
+                                else :
+                                    c = 0
+                                    st = ""
+                                    Main()
+                            gg , ggRect = UT(st)
+                    else : 
+                        return cutscene.cut_scene()
                         
             all_sprites_list.update()
             screen.blit(background_image, [0, 0])
