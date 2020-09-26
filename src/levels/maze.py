@@ -105,6 +105,10 @@ def maze_level():
 
         if player_x >= 710:
             # game end, win
+            import level_end_sound as les
+            mixer.music.pause()     
+            les.play()
+            mixer.music.unpause()
             time.sleep(1)
             return cutscene.cut_scene()
 
