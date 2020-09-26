@@ -24,6 +24,7 @@ else:
     icon = pygame.image.load(fr'{consts.ROOT_PATH}/assets/images/icon.png')
     bg_music = fr'{consts.ROOT_PATH}/assets/audio/bg/bg_song.mp3'
 
+mixer.music.set_volume(0.4)
 mixer.music.load(bg_music)
 mixer.music.play(-1)
 

@@ -8,7 +8,6 @@ from utils import widgets
 from levels import mine
 from levels import maze
 
-isBtn6Disabled = False
 isBtn5Disabled = False
 isBtn4Disabled = False
 isBtn3Disabled = False
@@ -47,10 +46,6 @@ def level_chooser_screen():
                                      width=50, height=50, fg_color=colors.WHITE_COLOR, bg_color=colors.THEME_ALT,
                                      font=consts.BOLD_FONT, text='5')
 
-    lvl6_button = widgets.TextButton(surface=consts.MAIN_DISPLAY, pos=(310, levels_title.get_height() + 30),
-                                     width=50, height=50, fg_color=colors.WHITE_COLOR, bg_color=colors.THEME_ALT,
-                                     font=consts.BOLD_FONT, text='6')
-
     is_game_over = False
     while not is_game_over:
         mouse_down = False
@@ -76,7 +71,7 @@ def level_chooser_screen():
             lvl1_button.toggle_bg(colors.GREEN_COLOR)
 
         if not isBtn2Disabled:
-            if lvl2_button.hovered:
+            if lvl2_button.hovered and isBtn1Disabled:
                 lvl2_button.toggle_bg(colors.THEME_ALT_DARK)
                 if mouse_down:
                     lvl2_button.toggle_bg(colors.THEME_ALT)
@@ -90,7 +85,7 @@ def level_chooser_screen():
             lvl2_button.toggle_bg(colors.GREEN_COLOR)
 
         if not isBtn3Disabled:
-            if lvl3_button.hovered:
+            if lvl3_button.hovered and isBtn2Disabled:
                 lvl3_button.toggle_bg(colors.THEME_ALT_DARK)
                 if mouse_down:
                     lvl3_button.toggle_bg(colors.THEME_ALT)
@@ -104,7 +99,7 @@ def level_chooser_screen():
             lvl3_button.toggle_bg(colors.GREEN_COLOR)
 
         if not isBtn4Disabled:
-            if lvl4_button.hovered:
+            if lvl4_button.hovered  and isBtn3Disabled:
                 lvl4_button.toggle_bg(colors.THEME_ALT_DARK)
                 if mouse_down:
                     lvl4_button.toggle_bg(colors.THEME_ALT)
@@ -118,7 +113,7 @@ def level_chooser_screen():
             lvl4_button.toggle_bg(colors.GREEN_COLOR)
 
         if not isBtn5Disabled:
-            if lvl5_button.hovered:
+            if lvl5_button.hovered and isBtn4Disabled:
                 lvl5_button.toggle_bg(colors.THEME_ALT_DARK)
                 if mouse_down:
                     lvl5_button.toggle_bg(colors.THEME_ALT)
@@ -130,20 +125,6 @@ def level_chooser_screen():
                 lvl5_button.toggle_bg(colors.THEME_ALT_DARK)
         else:
             lvl5_button.toggle_bg(colors.GREEN_COLOR)
-
-        if not isBtn6Disabled:
-            if lvl6_button.hovered:
-                lvl6_button.toggle_bg(colors.THEME_ALT_DARK)
-                if mouse_down:
-                    lvl6_button.toggle_bg(colors.THEME_ALT)
-                    # TODO: return level
-                    isBtn6Disabled = True
-            else:
-                lvl6_button.toggle_bg(colors.THEME_ALT)
-            if not isBtn5Disabled:
-                lvl6_button.toggle_bg(colors.THEME_ALT_DARK)
-        else:
-            lvl6_button.toggle_bg(colors.GREEN_COLOR)
 
         # update all the things in game
         pygame.display.update()
