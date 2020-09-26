@@ -286,7 +286,6 @@ def mine_level():
                     mixer.music.pause()     
                     les.play()
                     mixer.music.unpause()
-                    game_over_text('YOU GOT THE CRYSTAL', 10, 250)
                     time.sleep(0.5)
                     return cutscene.cut_scene(3)
             player(playerX, playerY)
