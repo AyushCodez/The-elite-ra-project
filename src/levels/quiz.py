@@ -18,7 +18,7 @@ class SP(pygame.sprite.Sprite):
         self.image = pygame.Surface([width, height])
         self.image.fill(WHITE)
         self.image.set_colorkey(WHITE)
-        self.image = pygame.image.load("ch.png").convert_alpha()
+        self.image = pygame.image.load("assets/sprites/ch.png").convert_alpha()
         self.rect = self.image.get_rect()
 def UpdateText(c):
     q = ["I'm sometimes full, but I never overflow." , 
