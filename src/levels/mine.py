@@ -280,6 +280,10 @@ def mine_level():
                                  (800, 600 - count), 5)
                 show_crystal(368, 640 - count)
                 if 600 - count < 150:
+                    import level_end_sound as les
+                    mixer.music.pause()     
+                    les.play()
+                    mixer.music.unpause()
                     game_over_text('YOU GOT THE CRYSTAL', 10, 250)
                     return cutscene.cut_scene()
             player(playerX, playerY)
