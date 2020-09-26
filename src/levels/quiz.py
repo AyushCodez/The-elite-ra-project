@@ -4,6 +4,9 @@ import random
 import platform
 import constants as cs
 from utils import colors
+from utils import level_end_sound as les
+from pygame import mixer
+import time
 
 
 class Alien(pygame.sprite.Sprite):   
@@ -165,11 +168,11 @@ def Main():
             pygame.draw.rect(screen,colors.WHITE_COLOR,(0,550,800,40))
             screen.blit(gg, ggRect)
             if c == 4:
-                import level_end_sound as les
                 mixer.music.pause()     
                 les.play()
-                mixer.music.unpause()     
-                return cutscene.cut_scene()
+                mixer.music.unpause()
+                time.sleep(1)
+                return cutscene.cut_scene(2)
             pygame.display.flip()
             clock.tick(60)
 

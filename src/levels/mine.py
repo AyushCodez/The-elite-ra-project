@@ -8,6 +8,9 @@ import platform
 import constants as consts
 from utils import colors
 import cutscene
+from utils import level_end_sound as les
+from pygame import mixer
+import time
 
 game_stat = 'win'
 
@@ -280,12 +283,12 @@ def mine_level():
                                  (800, 600 - count), 5)
                 show_crystal(368, 640 - count)
                 if 600 - count < 150:
-                    import level_end_sound as les
                     mixer.music.pause()     
                     les.play()
                     mixer.music.unpause()
                     game_over_text('YOU GOT THE CRYSTAL', 10, 250)
-                    return cutscene.cut_scene()
+                    time.sleep(1)
+                    return cutscene.cut_scene(3)
             player(playerX, playerY)
         pygame.display.update()
         consts.CLOCK.tick(60)

@@ -7,6 +7,8 @@ from utils import colors
 import time
 import platform
 import cutscene
+from utils import level_end_sound as les
+from pygame import mixer
 
 # load images
 if platform.system() == "Windows":
@@ -105,12 +107,11 @@ def maze_level():
 
         if player_x >= 710:
             # game end, win
-            import level_end_sound as les
             mixer.music.pause()     
             les.play()
             mixer.music.unpause()
             time.sleep(1)
-            return cutscene.cut_scene()
+            return cutscene.cut_scene(1)
 
         clear_screen_show_player(player_x, player_y)
         
