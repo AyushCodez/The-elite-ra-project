@@ -28,6 +28,14 @@ mixer.music.set_volume(0.4)
 mixer.music.load(bg_music)
 mixer.music.play(-1)
 
+class Logo(pygame.sprite.Sprite):
+    def __init__(self, color, width, height):
+        super().__init__()
+        self.image = pygame.Surface([width, height])
+        self.image.fill(WHITE)
+        self.image.set_colorkey(WHITE)
+        self.image = pygame.image.load("assets/images/LOGO.jpg").convert_alpha()
+        self.rect = self.image.get_rect()
 
 # init window and clock
 pygame.display.set_icon(icon)
@@ -48,6 +56,14 @@ def starting_screen():
     mute_button = widgets.TextButton(surface=consts.MAIN_DISPLAY, pos=(750 , 550),
                                      width=50, height=20, fg_color=colors.WHITE_COLOR, bg_color=colors.THEME_ALT,
                                      font=consts.BOLD_FONT, text='mute')
+    
+    all_sprites_list = pygame.sprite.Group()
+
+    AL = Logo((40,0,0), 20, 30)
+    AL.rect.x = 400
+    AL.rect.y = 200
+    all_sprites_list.add(AL)
+    
     # the main game loop, looped every frame, looped every clock.tick(TICK_RATE)
     is_game_over = False
     while not is_game_over:
@@ -72,6 +88,8 @@ def starting_screen():
             if event.type == pygame.MOUSEBUTTONDOWN :
                 mixer.music.set_volume(0.0)
         # update all the things in game
+        all_sprites_list.update()
+        consts.MAIN_DISPLAY.all_sprites_list.draw(screen)
         pygame.display.update()
         consts.CLOCK.tick(consts.TICK_RATE)
 
