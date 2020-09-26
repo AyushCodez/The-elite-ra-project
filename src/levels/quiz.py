@@ -9,7 +9,7 @@ class Alien(pygame.sprite.Sprite):
         self.image = pygame.Surface([width, height])
         self.image.fill(WHITE)
         self.image.set_colorkey(WHITE)
-        self.image = pygame.image.load("ALIEN.png").convert_alpha()
+        self.image = pygame.image.load("assets/sprites/ALIEN.png").convert_alpha()
         self.rect = self.image.get_rect()
 
 class SP(pygame.sprite.Sprite):
