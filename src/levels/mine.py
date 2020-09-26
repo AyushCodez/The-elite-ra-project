@@ -29,6 +29,8 @@ else:
     single_rock_img = pygame.image.load(fr'{consts.ROOT_PATH}/assets/images/textures/stone.png')
     single_oil_img = pygame.image.load(fr'{consts.ROOT_PATH}/assets/images/textures/oil.png')
 
+digImg = pygame.transform.scale(digImg, (75, 64))
+
 time1 = 0
 count = 0
 speed = 5
@@ -79,15 +81,18 @@ digY = [i for i in range(playerY + 21, -64, -speed)]
 
 
 def is_collision(x1, y1, x2, y2):
-    distance = (((x1 - x2) ** 2) + ((y1 - y2) ** 2)) ** (1 / 2)
-    if distance < 32:
+    x2, y2 = int(x2), int(y2)
+    if x1 in range(x2 - 29, x2 + 59) and y1 in range(y2, y2 + 80):
+        # print(x1, y1, x2, y2, 'no')
         return True
     else:
         return False
 
+
 def is_collision_rock(x1, y1, x2, y2):
-    distance = (((x1 - x2) ** 2) + ((y1 - y2) ** 2)) ** (1 / 2)
-    if distance < 37:
+    x2, y2 = int(x2), int(y2)
+    if x1 in range(x2 - 59, x2 + 59) and y1 in range(y2, y2 + 80):
+        # print(x1, y1, x2, y2, 'rock')
         return True
     else:
         return False
@@ -152,10 +157,10 @@ def mine_level():
             if event.type == pygame.KEYDOWN:
                 if game_stat == 'win':
                     if event.key == pygame.K_LEFT or event.key == pygame.K_a:
-                        playerX_change = -1
+                        playerX_change = -1.75
 
                     if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-                        playerX_change = 1
+                        playerX_change = 1.75
                 else:
                     playerX_change = 0
 
@@ -173,55 +178,63 @@ def mine_level():
                     button_stat = 'pressed'
 
         else:
+            game_time = 30
             if game_stat == 'win':
                 time_taken = round(time.time() - time1, 1)
                 display_time(str(time_taken))
-                if time_taken < 30:
+
+                for _ in range(1):
                     for i in range(num_of_meteors):
-                        collision = is_collision(meteorX[i], meteorY[i], playerX + 32, playerY + 62)
+                        collision = is_collision(meteorX[i], meteorY[i], playerX, playerY)
 
                         if collision:
                             playerY = 2000
                             game_stat = 'lost'
+                            game_stat1 = 'lost1'
 
                         meteorY[i] += meteorY_change[i]
 
                         meteor(meteorX[i], meteorY[i], i)
 
-                        if meteorY[i] < -32:
-                            meteorX[i] = random.randint(0, 736)
-                            meteorY[i] = random.randint(600, 1200)
+                        if time_taken < game_time:
+                            if meteorY[i] < -32:
+                                meteorX[i] = random.randint(0, 736)
+                                meteorY[i] = random.randint(600, 1200)
 
                     for i in range(num_of_rocks):
-                        collision = is_collision_rock(rockX[i] + 32, rockY[i] - 32, playerX + 32, playerY + 62)
+                        collision = is_collision_rock(rockX[i], rockY[i], playerX, playerY)
 
                         if collision:
                             playerY = 2000
                             game_stat = 'lost'
+                            game_stat1 = 'lost1'
 
                         rockY[i] += rockY_change[i]
 
                         rock(rockX[i], rockY[i], i)
-
-                        if rockY[i] < -64:
-                            rockX[i] = random.randint(0, 736)
-                            rockY[i] = random.randint(600, 1200)
+                        if time_taken < game_time:
+                            if rockY[i] < -64:
+                                rockX[i] = random.randint(0, 736)
+                                rockY[i] = random.randint(600, 1200)
 
                     for i in range(num_of_oils):
-                        collision = is_collision(oilX[i], oilY[i], playerX + 32, playerY + 62)
+                        collision = is_collision(oilX[i], oilY[i], playerX, playerY)
 
                         if collision:
                             playerY = 2000
                             game_stat = 'lost'
+                            game_stat1 = 'lost1'
 
                         oilY[i] += oilY_change[i]
 
                         oil(oilX[i], oilY[i], i)
 
-                        if oilY[i] < -32:
-                            oilX[i] = random.randint(0, 736)
-                            oilY[i] = random.randint(600, 1200)
-                else:
+                        if time_taken < game_time:
+                            if oilY[i] < -32:
+                                oilX[i] = random.randint(0, 736)
+                                oilY[i] = random.randint(600, 1200)
+
+                if time_taken >= game_time and game_stat1 != 'lost1':
                     if game_stat1 == 'lost':
                         count = 0
                     game_stat1 = 'win'
@@ -254,7 +267,7 @@ def mine_level():
                         game_stat1 = 'lost'
                         playerY = 80
             playerX += playerX_change
-            digX.insert(0, playerX)
+            digX.insert(0, playerX - 10)
 
             digX = digX[:len(digY)]
 
@@ -262,7 +275,7 @@ def mine_level():
                 dig(digX[i], digY[i], i)
 
             if game_stat1 == 'win':
-                count += 3
+                count += 5
                 pygame.draw.line(consts.MAIN_DISPLAY, (255, 255, 255), (0, 600 - count),
                                  (800, 600 - count), 5)
                 show_crystal(368, 640 - count)
