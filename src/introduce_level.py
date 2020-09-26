@@ -13,7 +13,7 @@ def introduce(level):
     controls = ""
     if level == 1:
         text = "The crystal has fallen into a crater!"
-        controls = "Get out of the maze! WASD to move through the maze"
+        controls = "Get out of the maze in time! WASD to move through the maze"
     if level == 2:
         text = "Solve the alien's riddles to get the crystal!"
         controls = "Hover over the white bar and answer him!"

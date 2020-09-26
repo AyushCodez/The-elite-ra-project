@@ -171,7 +171,6 @@ def Main():
                 mixer.music.pause()     
                 les.play()
                 mixer.music.unpause()
-                time.sleep(0.5)
                 return cutscene.cut_scene(2)
             pygame.display.flip()
             clock.tick(60)

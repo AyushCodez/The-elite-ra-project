@@ -25,17 +25,14 @@ maze = pygame.transform.scale(maze, (590, 590))
 player_image = pygame.transform.scale(player_image, (14, 14))
 
 
-# set initial coordinates
-player_x, player_y = 84, 280
-x_change, y_change = 0, 0
-
-
-def clear_screen_show_player(x, y):
+def redraw(x, y, current_time):
     """function to show player at x position AFTER clearing screen"""
     consts.MAIN_DISPLAY.fill(colors.GREY_COLOR)
     consts.MAIN_DISPLAY.blit(maze, (110, 5))
     consts.MAIN_DISPLAY.blit(crystal, (710, 150))
     consts.MAIN_DISPLAY.blit(player_image, (x, y))
+    timer_text = consts.BUTTON_FONT.render(current_time, True, colors.WHITE_COLOR)
+    consts.MAIN_DISPLAY.blit(timer_text, (770, 10))
 
 
 def get_color(x, y):
@@ -43,9 +40,19 @@ def get_color(x, y):
     return tuple(consts.MAIN_DISPLAY.get_at((x, y)))
 
 
+TIME_LIMIT = 60
+SPEED = 4
+
+
 def maze_level():
     """run the level"""
-    global x_change, y_change, player_x, player_y
+    # time limit setup
+    st = time.time()
+
+    # set initial coordinates
+    player_x, player_y = 84, 290
+    x_change, y_change = 0, 0
+
     # initial setup
     consts.MAIN_DISPLAY.fill(colors.GREY_COLOR)
     consts.MAIN_DISPLAY.blit(maze, (110, 5))
@@ -53,7 +60,14 @@ def maze_level():
 
     # main loop
     is_game_over = False
+    time_up = False
+    c = 0
     while not is_game_over:
+
+        if time.time() - st > TIME_LIMIT:
+            # time up
+            time_up = True
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 # quit game if QUIT is invoked
@@ -62,13 +76,13 @@ def maze_level():
             # movement of player
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_w:
-                    y_change -= 2
+                    y_change -= SPEED
                 elif event.key == pygame.K_s:
-                    y_change += 2
+                    y_change += SPEED
                 elif event.key == pygame.K_a:
-                    x_change -= 2
+                    x_change -= SPEED
                 elif event.key == pygame.K_d:
-                    x_change += 2
+                    x_change += SPEED
             # end movement if key up
             elif event.type == pygame.KEYUP:
                 if event.key == pygame.K_w or event.key == pygame.K_s:
@@ -108,11 +122,18 @@ def maze_level():
             mixer.music.pause()     
             les.play()
             mixer.music.unpause()
-            time.sleep(0.5)
             return cutscene.cut_scene(1)
 
-        clear_screen_show_player(player_x, player_y)
-        
+        if time_up:
+            consts.MAIN_DISPLAY.fill(colors.GREY_COLOR)
+            error = consts.TITLE_BOLD.render("Oh no! you ran out of time! Restarting!", True, colors.RED)
+            consts.MAIN_DISPLAY.blit(error, (100, 264))
+            c += 1
+            if c == 180:
+                return maze_level()
+        else:
+            redraw(player_x, player_y, current_time=str(int(TIME_LIMIT - round(time.time() - st, 0))))
+
         # update all the things in game
         pygame.display.update()
         consts.CLOCK.tick(consts.TICK_RATE)
