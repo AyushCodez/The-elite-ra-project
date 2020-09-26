@@ -61,21 +61,19 @@ def maze_level():
 
             # movement of player
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_w or event.key == pygame.K_UP:
+                if event.key == pygame.K_w:
                     y_change -= 2
-                elif event.key == pygame.K_s or event.key == pygame.K_DOWN:
+                elif event.key == pygame.K_s:
                     y_change += 2
-                elif event.key == pygame.K_a or event.key == pygame.K_LEFT:
+                elif event.key == pygame.K_a:
                     x_change -= 2
-                elif event.key == pygame.K_d or event.key == pygame.K_DOWN:
+                elif event.key == pygame.K_d:
                     x_change += 2
             # end movement if key up
             elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_w or event.key == pygame.K_s \
-                        or event.key == pygame.K_UP or event.key == pygame.K_DOWN:
+                if event.key == pygame.K_w or event.key == pygame.K_s:
                     y_change = 0
-                elif event.key == pygame.K_a or event.key == pygame.K_d \
-                        or event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                elif event.key == pygame.K_a or event.key == pygame.K_d:
                     x_change = 0
 
         # move player
@@ -110,7 +108,7 @@ def maze_level():
             mixer.music.pause()     
             les.play()
             mixer.music.unpause()
-            time.sleep(1)
+            time.sleep(0.5)
             return cutscene.cut_scene(1)
 
         clear_screen_show_player(player_x, player_y)
