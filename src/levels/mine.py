@@ -11,6 +11,7 @@ import cutscene
 from utils import level_end_sound as les
 from pygame import mixer
 import time
+import simpleaudio as sa 
 
 game_stat = 'win'
 
