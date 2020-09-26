@@ -26,7 +26,7 @@ else:
 
 mixer.music.set_volume(0.4)
 mixer.music.load(bg_music)
-mixer.music.play(-1)
+#mixer.music.play(-1)
 
 
 # init window and clock
