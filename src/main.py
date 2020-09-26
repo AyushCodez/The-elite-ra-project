@@ -25,7 +25,7 @@ else:
     bg_music = fr'{consts.ROOT_PATH}/assets/audio/bg/bg_song.mp3'
 
 mixer.music.load(bg_music)
-mixer.music.play(-1)
+#mixer.music.play(-1)
 
 
 # init window and clock
