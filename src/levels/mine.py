@@ -232,7 +232,7 @@ def mine_level():
                     playerX = 0
 
             if game_stat == 'lost':
-                game_over_text('GAME OVER', 200, 250)
+                game_over_text('GAME OVER', 250, 170)
                 display_button()
                 if pygame.mouse.get_pressed()[0]:
                     a = pygame.mouse.get_pos()[0]
