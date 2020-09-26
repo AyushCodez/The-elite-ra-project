@@ -165,6 +165,10 @@ def Main():
             pygame.draw.rect(screen,colors.WHITE_COLOR,(0,550,800,40))
             screen.blit(gg, ggRect)
             if c == 4:
+                import level_end_sound as les
+                mixer.music.pause()     
+                les.play()
+                mixer.music.unpause()     
                 return cutscene.cut_scene()
             pygame.display.flip()
             clock.tick(60)
