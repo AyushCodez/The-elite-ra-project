@@ -4,9 +4,6 @@
 import pygame
 import constants as consts
 from utils import colors
-from utils import widgets
-from levels import mine
-import levelscreen
 import time
 import platform
 import cutscene
@@ -103,6 +100,7 @@ def maze_level():
 
         if player_x >= 710:
             # game end, win
+            time.sleep(1)
             return cutscene.cut_scene()
 
         clear_screen_show_player(player_x, player_y)
