@@ -1,3 +1,6 @@
+# Copyright (c) 2020 Ayush Gupta, Kartikey Pandey, Pranjal Rastogi
+# Author: Pranjal Rastogi
+
 import pygame
 from levels import mine
 from levels import maze
@@ -30,7 +33,7 @@ def introduce(level):
 
     play_button = widgets.TextButton(surface=consts.MAIN_DISPLAY, pos=((consts.SCREEN_WIDTH / 2) - 100,
                                                                        consts.SCREEN_HEIGHT / 2 + 20),
-                                     width=200, height=40, fg_color=colors.WHITE_COLOR, bg_color=colors.THEME_ALT,
+                                     width=200, height=40, fg_color=colors.WHITE_COLOR, bg_color=colors.BUTTON_ENABLED,
                                      font=consts.BOLD_FONT, text='Start Level')
 
     # the main game loop, looped every frame, looped every clock.tick(TICK_RATE)
@@ -47,17 +50,17 @@ def introduce(level):
 
         # button interaction
         if play_button.hovered:
-            play_button.toggle_bg(colors.THEME_ALT_DARK)
+            play_button.toggle_bg(colors.BUTTON_DISABLED)
             if mouse_down:
-                play_button.toggle_bg(colors.THEME_ALT)
+                play_button.toggle_bg(colors.BUTTON_ENABLED)
                 if level == 1:
                     return maze.maze_level()
                 elif level == 2:
-                    return quiz.Main()
+                    return quiz.quiz_level()
                 elif level == 3:
                     return mine.mine_level()
         else:
-            play_button.toggle_bg(colors.THEME_ALT)
+            play_button.toggle_bg(colors.BUTTON_ENABLED)
 
         # update all the things in game
         pygame.display.update()

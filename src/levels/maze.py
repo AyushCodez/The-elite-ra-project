@@ -31,7 +31,7 @@ def redraw(x, y, current_time):
     consts.MAIN_DISPLAY.blit(maze, (110, 5))
     consts.MAIN_DISPLAY.blit(crystal, (710, 150))
     consts.MAIN_DISPLAY.blit(player_image, (x, y))
-    timer_text = consts.BUTTON_FONT.render(current_time, True, colors.WHITE_COLOR)
+    timer_text = consts.BUTTON_FONT.render(current_time, True, colors.BLACK_COLOR)
     consts.MAIN_DISPLAY.blit(timer_text, (770, 10))
 
 
@@ -127,7 +127,7 @@ def maze_level():
         if time_up:
             consts.MAIN_DISPLAY.fill(colors.GREY_COLOR)
             error = consts.TITLE_BOLD.render("Oh no! you ran out of time! Restarting!", True, colors.RED)
-            consts.MAIN_DISPLAY.blit(error, (100, 264))
+            consts.MAIN_DISPLAY.blit(error, (consts.SCREEN_WIDTH/2-error.get_width()/2, 264))
             c += 1
             if c == 180:
                 return maze_level()

@@ -58,7 +58,7 @@ def last_screen():
     consts.MAIN_DISPLAY.blit(rendered_text, (140, 100))
     end_btn = widgets.TextButton(surface=consts.MAIN_DISPLAY, pos=((consts.SCREEN_WIDTH / 2) - 100,
                                                                     (consts.SCREEN_HEIGHT / 2) + 100),
-                                 width=200, height=40, fg_color=colors.WHITE_COLOR, bg_color=colors.THEME_ALT,
+                                 width=200, height=40, fg_color=colors.WHITE_COLOR, bg_color=colors.BUTTON_ENABLED,
                                  font=consts.BOLD_FONT, text='Exit')
 
     # the main game loop, looped every frame, looped every clock.tick(TICK_RATE)
@@ -75,11 +75,11 @@ def last_screen():
 
         # button interaction
         if end_btn.hovered:
-            end_btn.toggle_bg(colors.THEME_ALT_DARK)
+            end_btn.toggle_bg(colors.BUTTON_DISABLED)
             if mouse_down:
                 sys.exit()
         else:
-            end_btn.toggle_bg(colors.THEME_ALT)
+            end_btn.toggle_bg(colors.BUTTON_ENABLED)
 
         # update all the things in game
         pygame.display.update()

@@ -1,13 +1,10 @@
 # Copyright (c) 2020 Ayush Gupta, Kartikey Pandey, Pranjal Rastogi
-# main.py
-# entry point for the application
-
 # Author: Pranjal Rastogi
 
 import pygame
 
 pygame.init()
-import sys
+
 from utils import colors
 from utils import widgets
 import constants as consts
@@ -43,12 +40,8 @@ consts.MAIN_DISPLAY.blit(logo_image, (100, 10))
 def starting_screen():
     play_button = widgets.TextButton(surface=consts.MAIN_DISPLAY, pos=((consts.SCREEN_WIDTH / 2) - 100,
                                                                        (consts.SCREEN_HEIGHT / 2) + 100),
-                                     width=200, height=40, fg_color=colors.WHITE_COLOR, bg_color=colors.THEME_ALT,
+                                     width=200, height=40, fg_color=colors.WHITE_COLOR, bg_color=colors.BUTTON_ENABLED,
                                      font=consts.BOLD_FONT, text='Play')
-    
-    mute_button = widgets.TextButton(surface=consts.MAIN_DISPLAY, pos=(700, 550),
-                                     width=75, height=20, fg_color=colors.WHITE_COLOR, bg_color=colors.THEME_ALT,
-                                     font=consts.BOLD_FONT, text='Mute')
 
     # the main game loop, looped every frame, looped every clock.tick(TICK_RATE)
     is_game_over = False
@@ -64,25 +57,14 @@ def starting_screen():
 
         # button interaction
         if play_button.hovered:
-            play_button.toggle_bg(colors.THEME_ALT_DARK)
+            play_button.toggle_bg(colors.BUTTON_DISABLED)
             if mouse_down:
-                play_button.toggle_bg(colors.THEME_ALT)
+                play_button.toggle_bg(colors.BUTTON_ENABLED)
                 return introduce_game.intro()
         else:
-            play_button.toggle_bg(colors.THEME_ALT)
-
-        if mute_button.hovered:
-
-            if mouse_down:
-                mixer.music.set_volume(0.0)
+            play_button.toggle_bg(colors.BUTTON_ENABLED)
 
         # update all the things in game
         pygame.display.update()
         consts.CLOCK.tick(consts.TICK_RATE)
 
-
-if __name__ == '__main__':
-    starting_screen()
-
-pygame.quit()
-sys.exit()

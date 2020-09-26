@@ -137,12 +137,12 @@ def show_crystal(x, y):
 
 
 def game_over_text(text, x, y):
-    gameover = consts.TITLE_FONT2.render(text, True, colors.WHITE_COLOR)
+    gameover = consts.TITLE_FONT2.render(text, True, colors.BLACK_COLOR)
     consts.MAIN_DISPLAY.blit(gameover, (x, y))
 
 
 def display_time(timern):
-    time_display = consts.BUTTON_FONT.render(timern, True, colors.WHITE_COLOR)
+    time_display = consts.BUTTON_FONT.render(timern, True, colors.BLACK_COLOR)
     consts.MAIN_DISPLAY.blit(time_display, (770, 10))
 
 
@@ -280,9 +280,8 @@ def mine_level():
             if game_stat1 == 'win':
                 count += 5
 
-                pygame.draw.line(consts.MAIN_DISPLAY, (255, 255, 255), (0, 600 - count),
-                                 (800, 600 - count), 1)
                 show_crystal(368, 640 - count)
+
                 if 600 - count < 150:
                     mixer.music.pause()     
                     les.play()
