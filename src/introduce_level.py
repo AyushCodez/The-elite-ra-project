@@ -18,11 +18,11 @@ def introduce(level):
         text = "The crystal has fallen into a crater!"
         controls = "Get out of the maze in time! WASD to move through the maze"
     if level == 2:
-        text = "Solve the alien's riddles to get the crystal!"
-        controls = "Hover over the white bar and answer him!"
+        text = "An Alien has captured your power crystal!"
+        controls = "Solve his Riddles! Hover over the white bar and answer him!"
     if level == 3:
         text = "The last crystal is buried under a pile of space rock!"
-        controls = "Dig for it! Avoid obstacles, use A or <- to move Left and D or -> to move right"
+        controls = "Mine it out! Avoid obstacles, use A or <- to move Left and D or -> to move right"
 
     rendered_text = consts.TITLE_FONT.render(text, True, colors.WHITE_COLOR)
     rendered_controls = consts.BUTTON_FONT.render(controls, True, colors.WHITE_COLOR)
