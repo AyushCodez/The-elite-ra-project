@@ -39,8 +39,6 @@ pygame.display.set_caption(consts.SCREEN_TITLE)
 consts.MAIN_DISPLAY.blit(consts.TITLE_SCREEN_BACKGROUND_IMAGE, [0, 0])
 consts.MAIN_DISPLAY.blit(logo_image, (100, 10))
 
-# TODO: Load game settings from another file (optional)
-
 
 def starting_screen():
     play_button = widgets.TextButton(surface=consts.MAIN_DISPLAY, pos=((consts.SCREEN_WIDTH / 2) - 100,

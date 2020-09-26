@@ -76,8 +76,7 @@ def last_screen():
         if end_btn.hovered:
             end_btn.toggle_bg(colors.THEME_ALT_DARK)
             if mouse_down:
-                end_btn.toggle_bg(colors.THEME_ALT)
-                pygame.quit()
+                return 0
         else:
             end_btn.toggle_bg(colors.THEME_ALT)
 

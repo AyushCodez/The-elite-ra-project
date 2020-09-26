@@ -11,11 +11,11 @@ def introduce(level):
 
     text = ""
     if level == 1:
-        text = "Solve the maze to get the crystal!"
+        text = "Solve the maze to get the crystal! WASD to move"
     if level == 2:
-        text = "Solve the alien's riddles to get the crystal!"
+        text = "Solve the alien's riddles to get the crystal! hover over white bar and type"
     if level == 3:
-        text = "The last crystal has buried itself! Dig for it!"
+        text = "The last crystal has buried itself! Dig for it! AD or LR to move"
 
     rendered_text = consts.TITLE_FONT.render(text, True, colors.WHITE_COLOR)
     consts.MAIN_DISPLAY.blit(rendered_text, ((consts.SCREEN_WIDTH / 2) - 250, 150))
