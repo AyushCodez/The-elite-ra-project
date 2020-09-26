@@ -70,8 +70,10 @@ def maze_level():
                 if event.key == pygame.K_w or event.key == pygame.K_s \
                         or event.key == pygame.K_UP or event.key == pygame.K_DOWN:
                     y_change = 0
-                elif event.key == pygame.K_a or event.key == pygame.K_d or event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                elif event.key == pygame.K_a or event.key == pygame.K_d \
+                        or event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                     x_change = 0
+
         # move player
         player_x += x_change
         player_y += y_change
@@ -98,6 +100,10 @@ def maze_level():
             # edges of screen
             player_x = player_x - x_change
             player_y = player_y - y_change
+
+        if player_x >= 710:
+            # game end, win
+            return cutscene.cut_scene()
 
         clear_screen_show_player(player_x, player_y)
         
