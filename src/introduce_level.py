@@ -12,14 +12,14 @@ def introduce(level):
     text = ""
     controls = ""
     if level == 1:
-        text = "Solve the maze to get the crystal!"
-        controls = "WASD to move through the maze"
+        text = "The crystal has fallen into a crater!"
+        controls = "Get out of the maze! WASD to move through the maze"
     if level == 2:
         text = "Solve the alien's riddles to get the crystal!"
-        controls = "Hover over the white bar and type the answer!"
+        controls = "Hover over the white bar and answer him!"
     if level == 3:
-        text = "The last crystal has buried itself! Dig for it!"
-        controls = "Use A or Left Arrow Key to move Left and D or Right Arrow Key to move right"
+        text = "The last crystal is buried under a pile of space rock! Dig for it!"
+        controls = "Avoid obstacles, use A or Left Arrow Key to move Left and D or Right Arrow Key to move right"
 
     rendered_text = consts.TITLE_FONT.render(text, True, colors.WHITE_COLOR)
     rendered_controls = consts.BUTTON_FONT.render(controls, True, colors.WHITE_COLOR)
