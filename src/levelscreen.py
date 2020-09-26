@@ -5,9 +5,6 @@ import pygame
 import constants as consts
 from utils import colors
 from utils import widgets
-from levels import mine
-from levels import maze
-from levels import quiz
 import introduce_level
 
 isBtn3Disabled = False
