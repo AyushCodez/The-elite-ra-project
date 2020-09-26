@@ -6,6 +6,7 @@ import constants as consts
 from utils import colors
 from utils import widgets
 import platform
+import sys
 
 text = "You have escaped!"
 rendered_text = consts.TITLE_FONT2.render(text, True, colors.WHITE_COLOR)
@@ -76,7 +77,7 @@ def last_screen():
         if end_btn.hovered:
             end_btn.toggle_bg(colors.THEME_ALT_DARK)
             if mouse_down:
-                return 0
+                sys.exit()
         else:
             end_btn.toggle_bg(colors.THEME_ALT)
 

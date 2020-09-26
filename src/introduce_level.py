@@ -10,19 +10,28 @@ def introduce(level):
     consts.MAIN_DISPLAY.blit(consts.TITLE_SCREEN_BACKGROUND_IMAGE, [0, 0])
 
     text = ""
+    controls = ""
     if level == 1:
-        text = "Solve the maze to get the crystal! WASD to move"
+        text = "Solve the maze to get the crystal!"
+        controls = "WASD to move through the maze"
     if level == 2:
-        text = "Solve the alien's riddles to get the crystal! hover over white bar and type"
+        text = "Solve the alien's riddles to get the crystal!"
+        controls = "Hover over the white bar and type the answer!"
     if level == 3:
-        text = "The last crystal has buried itself! Dig for it! AD or LR to move"
+        text = "The last crystal has buried itself! Dig for it!"
+        controls = "Use A or Left Arrow Key to move Left and D or Right Arrow Key to move right"
 
     rendered_text = consts.TITLE_FONT.render(text, True, colors.WHITE_COLOR)
-    consts.MAIN_DISPLAY.blit(rendered_text, ((consts.SCREEN_WIDTH / 2) - 250, 150))
+    rendered_controls = consts.BUTTON_FONT.render(controls, True, colors.WHITE_COLOR)
+
+    consts.MAIN_DISPLAY.blit(rendered_text, (consts.SCREEN_WIDTH/2 - rendered_text.get_width()/2, 150))
+
+    consts.MAIN_DISPLAY.blit(rendered_controls, (consts.SCREEN_WIDTH/2 - rendered_controls.get_width()/2, 200))
+
     play_button = widgets.TextButton(surface=consts.MAIN_DISPLAY, pos=((consts.SCREEN_WIDTH / 2) - 100,
-                                                                       (consts.SCREEN_HEIGHT / 2) - 20),
+                                                                       consts.SCREEN_HEIGHT / 2 + 20),
                                      width=200, height=40, fg_color=colors.WHITE_COLOR, bg_color=colors.THEME_ALT,
-                                     font=consts.BOLD_FONT, text=f'Play Level {level}')
+                                     font=consts.BOLD_FONT, text='Start Level')
 
     # the main game loop, looped every frame, looped every clock.tick(TICK_RATE)
     is_game_over = False
