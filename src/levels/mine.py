@@ -23,6 +23,7 @@ if platform.system() == "Windows":
     single_meteor_img = pygame.image.load(fr'{consts.ROOT_PATH}\assets\images\textures\nuclear.png')
     single_rock_img = pygame.image.load(fr'{consts.ROOT_PATH}\assets\images\textures\stone.png')
     single_oil_img = pygame.image.load(fr'{consts.ROOT_PATH}\assets\images\textures\oil.png')
+    filename = fr'{consts.ROOT_PATH}\assets\audio\effects\drill.wav'
 
 else:
     playerImg = pygame.image.load(fr'{consts.ROOT_PATH}/assets/sprites/test_Drill.png')
@@ -32,6 +33,7 @@ else:
     single_meteor_img = pygame.image.load(fr'{consts.ROOT_PATH}/assets/images/textures/nuclear.png')
     single_rock_img = pygame.image.load(fr'{consts.ROOT_PATH}/assets/images/textures/stone.png')
     single_oil_img = pygame.image.load(fr'{consts.ROOT_PATH}/assets/images/textures/oil.png')
+    filename = f'{consts.ROOT_PATH}/assets/audio/effects/drill.wav'
 
 digImg = pygame.transform.scale(digImg, (75, 64))
 
@@ -149,7 +151,6 @@ def display_time(timern):
 
 def mine_level():
     mixer.music.pause()
-    filename = 'assets/audio/effects/drill.wav'
     wave_obj = sa.WaveObject.from_wave_file(filename)
     play_obj = wave_obj.play()
     running = True
