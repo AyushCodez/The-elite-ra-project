@@ -1,75 +1,97 @@
 import pygame
 import cutscene
 import random
+import platform
 import constants as cs
-    
+from utils import colors
+
+
 class Alien(pygame.sprite.Sprite):   
     def __init__(self, color, width, height):
         super().__init__()
         self.image = pygame.Surface([width, height])
-        self.image.fill(WHITE)
-        self.image.set_colorkey(WHITE)
-        self.image = pygame.image.load("assets/sprites/ALIEN.png").convert_alpha()
+        self.image.fill(colors.WHITE_COLOR)
+        self.image.set_colorkey(colors.WHITE_COLOR)
+
+        if platform.system() == "Windows":
+            self.image = pygame.image.load(fr"{cs.ROOT_PATH}\assets\sprites\ALIEN.png").convert_alpha()
+        else:
+            self.image = pygame.image.load(f"{cs.ROOT_PATH}/assets/sprites/ALIEN.png").convert_alpha()
+
         self.rect = self.image.get_rect()
+
 
 class SP(pygame.sprite.Sprite):
     def __init__(self, color, width, height):
         super().__init__()
         self.image = pygame.Surface([width, height])
-        self.image.fill(WHITE)
-        self.image.set_colorkey(WHITE)
-        self.image = pygame.image.load("assets/sprites/ch.png").convert_alpha()
+        self.image.fill(colors.WHITE_COLOR)
+        self.image.set_colorkey(colors.WHITE_COLOR)
+        if platform.system() == "Windows":
+            self.image = pygame.image.load(fr"{cs.ROOT_PATH}\assets\sprites\ch.png").convert_alpha()
+        else:
+            self.image = pygame.image.load(f"{cs.ROOT_PATH}/assets/sprites/ch.png").convert_alpha()
         self.rect = self.image.get_rect()
+
+
 def UpdateText(c):
     q = ["I'm sometimes full, but I never overflow." , 
          "What planet has the shortest year?" ,
          "Largest Planet of the Solar System",
          "I am at the centre of the Solar System"]
-    font = pygame.font.Font('freesansbold.ttf', 16) 
-    text = font.render( q[c] , True , WHITE) 
+
+    text = cs.BUTTON_FONT.render(q[c], True, colors.WHITE_COLOR)
     textRect = text.get_rect()  
     textRect.center = (800 // 2, 400 // 2) 
-    return text , textRect 
-def Answer(st , c):
-    ans = ["moon" , "mercury" ,"jupiter" , "sun"]
-    if( st == ans[c]):
+    return text, textRect
+
+
+def Answer(st, c):
+
+    ans = ["moon", "mercury", "jupiter", "sun"]
+
+    if st == ans[c]:
         return True
-    else : 
+    else:
         return False
+
+
 def UT(st):
-    font = pygame.font.Font('freesansbold.ttf', 16) 
-    gg = font.render( st , True , (0,0,0)) 
+
+    gg = cs.BUTTON_FONT.render( st , True , (0,0,0))
     ggRect = gg.get_rect()  
     ggRect.center = (420, 570) 
-    return gg , ggRect
+    return gg, ggRect
+
 def Main():
-    size = (cs.SCREEN_WIDTH, cs.SCREEN_HEIGHT)
+
     screen = cs.MAIN_DISPLAY
-    pygame.display.set_caption(sc.SCREEN_TITLE)
     background_image = cs.TITLE_SCREEN_BACKGROUND_IMAGE
     all_sprites_list = pygame.sprite.Group()
 
-    AL = Alien(RED, 20, 30)
+    AL = Alien(colors.RED, 20, 30)
+
     AL.rect.x = 130
     AL.rect.y = 350
     all_sprites_list.add(AL)
 
-    S = SP(RED, 20, 30)
+    S = SP(colors.RED, 20, 30)
     S.rect.x = 200
     S.rect.y = 120
     all_sprites_list.add(S)
     st = ""
     carryOn = True
-    clock=pygame.time.Clock()
+    clock = pygame.time.Clock()
     c = 0
     while carryOn:
-            gg , ggRect = UT(st)
+            gg, ggRect = UT(st)
             x, y = pygame.mouse.get_pos()
-            text , textRect = UpdateText(c)
+            text, textRect = UpdateText(c)
             for event in pygame.event.get():
-                if event.type==pygame.QUIT:
-                    carryOn=False
-                if (y >=550 and y<=600 ) :
+                if event.type == pygame.QUIT:
+                    carryOn = False
+
+                if y >=550 and y<=600:
                     if event.type == pygame.KEYDOWN:
 
                         if event.key == pygame.K_a:
@@ -128,7 +150,7 @@ def Main():
                             st = st[:-1]
                         elif event.key == pygame.K_RETURN:
                             k = Answer(st , c)
-                            if k == True : 
+                            if k:
                                 c = c+1
                                 st = ""
                             else :
@@ -141,11 +163,10 @@ def Main():
             screen.blit(background_image, [0, 0])
             all_sprites_list.draw(screen)
             screen.blit(text, textRect) 
-            pygame.draw.rect(screen,WHITE,(0,550,800,40))
+            pygame.draw.rect(screen,colors.WHITE_COLOR,(0,550,800,40))
             screen.blit(gg, ggRect)
-            if ( c == 4 ):
+            if c == 4:
                 return cutscene.cut_scene()
             pygame.display.flip()
             clock.tick(60)
 
-    pygame.quit()

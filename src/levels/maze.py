@@ -12,16 +12,19 @@ import cutscene
 if platform.system() == "Windows":
     maze = pygame.image.load(fr'{consts.ROOT_PATH}\assets\images\textures\maze.png')
     player_image = pygame.image.load(fr'{consts.ROOT_PATH}\assets\sprites\astro.png')
+    crystal = pygame.image.load(fr'{consts.ROOT_PATH}\assets\images\textures\crystal.png')
 else:
     maze = pygame.image.load(fr'{consts.ROOT_PATH}/assets/images/textures/maze.png')
     player_image = pygame.image.load(fr'{consts.ROOT_PATH}/assets/sprites/astro.png')
+    crystal = pygame.image.load(fr'{consts.ROOT_PATH}/assets/images/textures/crystal.png')
 
 # resize images
 maze = pygame.transform.scale(maze, (590, 590))
 player_image = pygame.transform.scale(player_image, (14, 14))
 
+
 # set initial coordinates
-player_x, player_y = 84, 270
+player_x, player_y = 84, 280
 x_change, y_change = 0, 0
 
 
@@ -29,6 +32,7 @@ def clear_screen_show_player(x, y):
     """function to show player at x position AFTER clearing screen"""
     consts.MAIN_DISPLAY.fill(colors.GREY_COLOR)
     consts.MAIN_DISPLAY.blit(maze, (110, 5))
+    consts.MAIN_DISPLAY.blit(crystal, (710, 150))
     consts.MAIN_DISPLAY.blit(player_image, (x, y))
 
 
@@ -43,6 +47,7 @@ def maze_level():
     # initial setup
     consts.MAIN_DISPLAY.fill(colors.GREY_COLOR)
     consts.MAIN_DISPLAY.blit(maze, (110, 5))
+    consts.MAIN_DISPLAY.blit(crystal, (710, 150))
 
     # main loop
     is_game_over = False

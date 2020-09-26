@@ -7,6 +7,7 @@ from utils import colors
 from utils import widgets
 from levels import mine
 from levels import maze
+from levels import quiz
 
 isBtn3Disabled = False
 isBtn2Disabled = False
@@ -65,8 +66,8 @@ def level_chooser_screen():
                 lvl2_button.toggle_bg(colors.THEME_ALT_DARK)
                 if mouse_down:
                     lvl2_button.toggle_bg(colors.THEME_ALT)
-                    # TODO: return level
                     isBtn2Disabled = True
+                    return quiz.Main()
             else:
                 lvl2_button.toggle_bg(colors.THEME_ALT)
             if not isBtn1Disabled:
