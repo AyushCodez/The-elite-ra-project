@@ -21,10 +21,12 @@ TITLE_SCREEN_BACKGROUND_IMAGE = pygame.image.load(f"{ROOT_PATH}/assets/images/bg
 # fonts
 if platform.system() == "Windows":
     TITLE_FONT = pygame.font.Font(fr'{ROOT_PATH}\assets\fonts\SourceSansPro-Regular.ttf', 36)
+    TITLE_FONT2 = pygame.font.Font(fr'{ROOT_PATH}\assets\fonts\SourceSansPro-Regular.ttf', 64)
     BUTTON_FONT = pygame.font.Font(fr'{ROOT_PATH}\assets\fonts\SourceSansPro-Regular.ttf', 18)
     BOLD_FONT = pygame.font.Font(fr'{ROOT_PATH}\assets\fonts\SourceSansPro-Black.ttf', 24)
 else:
     TITLE_FONT = pygame.font.Font(f'{ROOT_PATH}/assets/fonts/SourceSansPro-Regular.ttf', 36)
+    TITLE_FONT2 = pygame.font.Font(f'{ROOT_PATH}/assets/fonts/SourceSansPro-Regular.ttf', 64)
     BUTTON_FONT = pygame.font.Font(f'{ROOT_PATH}/assets/fonts/SourceSansPro-Regular.ttf', 18)
     BOLD_FONT = pygame.font.Font(f'{ROOT_PATH}/assets/fonts/SourceSansPro-Black.ttf', 24)
 

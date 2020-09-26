@@ -129,7 +129,7 @@ def show_crystal(x, y):
 
 
 def game_over_text(text, x, y):
-    gameover = consts.TITLE_FONT.render(text, True, colors.WHITE_COLOR)
+    gameover = consts.TITLE_FONT2.render(text, True, colors.WHITE_COLOR)
     consts.MAIN_DISPLAY.blit(gameover, (x, y))
 
 
@@ -150,11 +150,14 @@ def mine_level():
                 running = False
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT or event.key == pygame.K_a:
-                    playerX_change = -1
+                if game_stat == 'win':
+                    if event.key == pygame.K_LEFT or event.key == pygame.K_a:
+                        playerX_change = -1
 
-                if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
-                    playerX_change = 1
+                    if event.key == pygame.K_RIGHT or event.key == pygame.K_d:
+                        playerX_change = 1
+                else:
+                    playerX_change = 0
 
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT or event.key == pygame.K_a or event.key == pygame.K_d:
@@ -265,7 +268,6 @@ def mine_level():
                 show_crystal(368, 640 - count)
                 if 600 - count < 150:
                     game_over_text('YOU GOT THE CRYSTAL', 10, 250)
-                    # END CODE HERE
                     return cutscene.cut_scene()
             player(playerX, playerY)
         pygame.display.update()
