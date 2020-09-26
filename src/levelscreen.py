@@ -8,6 +8,7 @@ from utils import widgets
 from levels import mine
 from levels import maze
 from levels import quiz
+import introduce_level
 
 isBtn3Disabled = False
 isBtn2Disabled = False
@@ -54,7 +55,7 @@ def level_chooser_screen():
                 if mouse_down:
                     lvl1_button.toggle_bg(colors.THEME_ALT)
                     isBtn1Disabled = True
-                    return maze.maze_level()
+                    return introduce_level.introduce(1)
             else:
                 lvl1_button.toggle_bg(colors.THEME_ALT)
         else:
@@ -67,7 +68,7 @@ def level_chooser_screen():
                 if mouse_down:
                     lvl2_button.toggle_bg(colors.THEME_ALT)
                     isBtn2Disabled = True
-                    return quiz.Main()
+                    return introduce_level.introduce(2)
             else:
                 lvl2_button.toggle_bg(colors.THEME_ALT)
             if not isBtn1Disabled:
@@ -81,7 +82,7 @@ def level_chooser_screen():
                 if mouse_down:
                     lvl3_button.toggle_bg(colors.THEME_ALT)
                     isBtn3Disabled = True
-                    return mine.mine_level()
+                    return introduce_level.introduce(3)
             else:
                 lvl3_button.toggle_bg(colors.THEME_ALT)
             if not isBtn2Disabled:
