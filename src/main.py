@@ -14,11 +14,19 @@ from utils import widgets
 import constants as consts
 import levelscreen
 import platform
+from pygame import mixer
 
 if platform.system() == 'Windows':
     icon = pygame.image.load(fr'{consts.ROOT_PATH}\assets\images\icon.png')
+    bg_music = fr'{consts.ROOT_PATH}\assets\audio\bg\bg_song.mp3'
+
 else:
     icon = pygame.image.load(fr'{consts.ROOT_PATH}/assets/images/icon.png')
+    bg_music = fr'{consts.ROOT_PATH}/assets/audio/bg/bg_song.mp3'
+
+mixer.music.load(bg_music)
+mixer.music.play(-1)
+
 
 # init window and clock
 pygame.display.set_icon(icon)
