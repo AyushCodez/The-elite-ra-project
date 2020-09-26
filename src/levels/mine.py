@@ -279,8 +279,9 @@ def mine_level():
 
             if game_stat1 == 'win':
                 count += 5
+
                 pygame.draw.line(consts.MAIN_DISPLAY, (255, 255, 255), (0, 600 - count),
-                                 (800, 600 - count), 5)
+                                 (800, 600 - count), 1)
                 show_crystal(368, 640 - count)
                 if 600 - count < 150:
                     mixer.music.pause()     

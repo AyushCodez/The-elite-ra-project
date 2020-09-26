@@ -22,7 +22,7 @@ else:
 
 # resize images
 maze = pygame.transform.scale(maze, (590, 590))
-player_image = pygame.transform.scale(player_image, (14, 14))
+player_image = pygame.transform.scale(player_image, (13, 13))
 
 
 def redraw(x, y, current_time):
@@ -50,7 +50,7 @@ def maze_level():
     st = time.time()
 
     # set initial coordinates
-    player_x, player_y = 84, 290
+    player_x, player_y = 84, 293
     x_change, y_change = 0, 0
 
     # initial setup
@@ -100,15 +100,15 @@ def maze_level():
                 # top left corner
                 player_x = player_x - x_change
                 player_y = player_y - y_change
-            if get_color(player_x + 14, player_y + 14)[0] < 200:
+            if get_color(player_x + 13, player_y + 13)[0] < 200:
                 # bottom right corner
                 player_x = player_x - x_change
                 player_y = player_y - y_change
-            if get_color(player_x + 14, player_y)[0] < 200:
+            if get_color(player_x + 13, player_y)[0] < 200:
                 # bottom left corner
                 player_x = player_x - x_change
                 player_y = player_y - y_change
-            if get_color(player_x, player_y + 14)[0] < 200:
+            if get_color(player_x, player_y + 13)[0] < 200:
                 # top right corner
                 player_x = player_x - x_change
                 player_y = player_y - y_change

@@ -18,8 +18,8 @@ def introduce(level):
         text = "Solve the alien's riddles to get the crystal!"
         controls = "Hover over the white bar and answer him!"
     if level == 3:
-        text = "The last crystal is buried under a pile of space rock! Dig for it!"
-        controls = "Avoid obstacles, use A or Left Arrow Key to move Left and D or Right Arrow Key to move right"
+        text = "The last crystal is buried under a pile of space rock!"
+        controls = "Dig for it! Avoid obstacles, use A or <- to move Left and D or -> to move right"
 
     rendered_text = consts.TITLE_FONT.render(text, True, colors.WHITE_COLOR)
     rendered_controls = consts.BUTTON_FONT.render(controls, True, colors.WHITE_COLOR)

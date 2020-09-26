@@ -93,7 +93,8 @@ def Main():
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     carryOn = False
-                if y >=550 and y<=600:
+
+                if y >= 550 and y <= 600:
                     if event.type == pygame.KEYDOWN:
 
                         if event.key == pygame.K_a:
@@ -165,7 +166,7 @@ def Main():
             screen.blit(background_image, [0, 0])
             all_sprites_list.draw(screen)
             screen.blit(text, textRect) 
-            pygame.draw.rect(screen,colors.WHITE_COLOR,(0,550,800,40))
+            pygame.draw.rect(screen, colors.WHITE_COLOR, (0, 550, 800, 40))
             screen.blit(gg, ggRect)
             if c == 4:
                 mixer.music.pause()     
