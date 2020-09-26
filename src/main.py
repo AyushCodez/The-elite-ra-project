@@ -12,9 +12,9 @@ from utils import colors
 from utils import widgets
 import constants as consts
 import levelscreen
+import platform
 
 
-# init window and clock
 # TODO: set an icon to the game
 
 pygame.display.set_caption(consts.SCREEN_TITLE)

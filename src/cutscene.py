@@ -9,6 +9,7 @@ import levelscreen
 
 # TODO: implement
 
+
 def cut_scene():
     consts.MAIN_DISPLAY.blit(consts.TITLE_SCREEN_BACKGROUND_IMAGE, [0, 0])
     levels_title = consts.TITLE_FONT.render("CUT_SCENE CRYSTAL BEING PLACED!!", True, colors.WHITE_COLOR)
