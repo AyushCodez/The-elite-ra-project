@@ -80,7 +80,7 @@ digY = [i for i in range(playerY + 21, -64, -speed)]
 
 def is_collision(x1, y1, x2, y2):
     distance = (((x1 - x2) ** 2) + ((y1 - y2) ** 2)) ** (1 / 2)
-    if distance < 27:
+    if distance < 32:
         return True
     else:
         return False
