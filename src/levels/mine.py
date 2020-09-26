@@ -147,6 +147,10 @@ def display_time(timern):
 
 
 def mine_level():
+    mixer.music.pause()
+    filename = 'assets/audio/effects/drill.wav'
+    wave_obj = sa.WaveObject.from_wave_file(filename)
+    play_obj = wave_obj.play()
     running = True
     global playerX_change, button_stat, time1, game_stat1, game_stat, playerY, playerX, digX, digY, count
     while running:
@@ -203,6 +207,8 @@ def mine_level():
                             if meteorY[i] < -32:
                                 meteorX[i] = random.randint(0, 736)
                                 meteorY[i] = random.randint(600, 1200)
+                        play_obj.stop()
+                        mixer.music.unpause()
 
                     for i in range(num_of_rocks):
                         collision = is_collision_rock(rockX[i], rockY[i], playerX, playerY)
