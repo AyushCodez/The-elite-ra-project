@@ -7,12 +7,11 @@
 import pygame
 
 pygame.init()
-
 import sys
 from utils import colors
 from utils import widgets
 import constants as consts
-import levelscreen
+import introduce_game
 import platform
 from pygame import mixer
 
@@ -49,9 +48,9 @@ def starting_screen():
                                      width=200, height=40, fg_color=colors.WHITE_COLOR, bg_color=colors.THEME_ALT,
                                      font=consts.BOLD_FONT, text='Play')
     
-    mute_button = widgets.TextButton(surface=consts.MAIN_DISPLAY, pos=(750 , 550),
-                                     width=50, height=20, fg_color=colors.WHITE_COLOR, bg_color=colors.THEME_ALT,
-                                     font=consts.BOLD_FONT, text='mute')
+    mute_button = widgets.TextButton(surface=consts.MAIN_DISPLAY, pos=(700, 550),
+                                     width=75, height=20, fg_color=colors.WHITE_COLOR, bg_color=colors.THEME_ALT,
+                                     font=consts.BOLD_FONT, text='Mute')
 
     # the main game loop, looped every frame, looped every clock.tick(TICK_RATE)
     is_game_over = False
@@ -70,7 +69,7 @@ def starting_screen():
             play_button.toggle_bg(colors.THEME_ALT_DARK)
             if mouse_down:
                 play_button.toggle_bg(colors.THEME_ALT)
-                return levelscreen.level_chooser_screen()
+                return introduce_game.intro()
         else:
             play_button.toggle_bg(colors.THEME_ALT)
 

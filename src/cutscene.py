@@ -7,6 +7,7 @@ import pygame
 import time
 import levelscreen
 import platform
+import win
 
 if platform.system() == "Windows":
     BG_IMAGE = pygame.image.load(f"{consts.ROOT_PATH}\\assets\\images\\bg\\cutscene_bg.png")
@@ -87,7 +88,7 @@ def cut_scene(level):
                 redraw_crystal([crystal_1, crystal_2, crystal_3], crystal_3x, crystal_3y, level)
             else:
                 time.sleep(1)
-                return levelscreen.level_chooser_screen()
+                return win.win_animation()
 
         # update all the things in game
         pygame.display.update()
