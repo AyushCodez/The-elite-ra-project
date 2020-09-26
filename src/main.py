@@ -5,6 +5,7 @@
 # Author: Pranjal Rastogi
 
 import pygame
+
 pygame.init()
 
 import sys
@@ -14,8 +15,13 @@ import constants as consts
 import levelscreen
 import platform
 
+if platform.system() == 'Windows':
+    icon = pygame.image.load(fr'{consts.ROOT_PATH}\assets\images\icon.png')
+else:
+    icon = pygame.image.load(fr'{consts.ROOT_PATH}/assets/images/icon.png')
 
-# TODO: set an icon to the game
+# init window and clock
+pygame.display.set_icon(icon)
 
 pygame.display.set_caption(consts.SCREEN_TITLE)
 consts.MAIN_DISPLAY.blit(consts.TITLE_SCREEN_BACKGROUND_IMAGE, [0, 0])
