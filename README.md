@@ -49,7 +49,7 @@ The controls for each level are:
 
 
 ## Attribution
-- Some icons made by [DinosoftLabs](https://www.flaticon.com/authors/dinosoftlabsoft) from 
+- Some icons made by [DinosoftLabs](https://www.flaticon.com/authors/dinosoftlabs) from 
 [Flaticon](https://www.flaticon.com)
 
 - Some other icons made by [freepik](https://www.flaticon.com/authors/freepik)
