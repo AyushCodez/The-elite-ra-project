@@ -2,6 +2,8 @@
 
 A game about being castaway on an asteroid, and fixing your spacecraft to find a way home
 
+**Made by team *elite-ra***
+
 ## Requirements
 **Python Version:** 3.7.x or above
 
@@ -59,6 +61,6 @@ from [Flaticon](https://www.flaticon.com/)
 - Music made by Pranjal Rastogi
 
 ## Copyright
-Copyright (c) 2020 Ayush Gupta, Kartikey Pandey, Pranjal Rastogi. MIT License
+Copyright (c) 2020 Ayush Gupta, Kartikey Pandey, Pranjal Rastogi {Team elite-ra}. MIT License
 
 See **License** for more information
