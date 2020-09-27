@@ -1,8 +1,10 @@
 # Cast X Space
 
-A game about being castaway on an asteroid, and fixing your spacecraft to find a way home
+A game about being castaway on an asteroid, and fixing your spacecraft to find a way home!
+You must get all the power crystals of your spacecraft!
 
-**Made by team *elite-ra***
+
+**Made by team *elite-ra*: Ayush Gupta, Kartikey Pandey and Pranjal Rastogi**
 
 ## Requirements
 **Python Version:** 3.7.x or above
@@ -11,13 +13,13 @@ A game about being castaway on an asteroid, and fixing your spacecraft to find a
 - pygame
 - simpleaudio
 
-Run `python3 -m pip install -r src/requirements.txt` to install dependencies.
+Run `python3 -m pip install -r src/requirements.txt` from the main repository folder to install dependencies.
 
 ## How to run the game
 
-You can run the game by running the command `python3 src/run_game.py`
+You can run the game by running the command `python3 src/run_game.py` from the main repository folder 
 
-Remember, you need to use Python Interpreter version 3.7.x or above!
+Remember, you need to use Python Interpreter version 3.7.x or above! Install python from [Python.org](https://python.org)
 
 ## What there is to see in the game
 
@@ -61,6 +63,6 @@ from [Flaticon](https://www.flaticon.com/)
 - Music made by Pranjal Rastogi
 
 ## Copyright
-Copyright (c) 2020 Ayush Gupta, Kartikey Pandey, Pranjal Rastogi {Team elite-ra}. MIT License
+Copyright (c) 2020 Ayush Gupta, Kartikey Pandey, Pranjal Rastogi [Team elite-ra]. MIT License
 
 See **License** for more information
