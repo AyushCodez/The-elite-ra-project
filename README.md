@@ -3,7 +3,7 @@
 A game about being castaway on an asteroid, and fixing your spacecraft to find a way home
 
 ## Requirements
-**Python Version:** 3.7.x
+**Python Version:** 3.7.x or above
 
 ### Dependencies
 - pygame
@@ -15,7 +15,7 @@ Run `python3 -m pip install -r src/requirements.txt` to install dependencies.
 
 You can run the game by running the command `python3 src/run_game.py`
 
-Remember to use python 3.7.x
+Remember, you need to use Python Interpreter version 3.7.x or above!
 
 ## What there is to see in the game
 
