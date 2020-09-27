@@ -51,12 +51,12 @@ The controls for each level are:
 ## Attribution
 - Some icons made by [DinosoftLabs](https://www.flaticon.com/authors/dinosoftlabs) from 
 [Flaticon](https://www.flaticon.com)
-
 - Some other icons made by [freepik](https://www.flaticon.com/authors/freepik)
 from [Flaticon](https://www.flaticon.com/)
-
 - [Vintage](https://www.freepik.com/vectors/vintage) vectors created by dgim-studio - 
 [www.freepik.com](https://www.freepik.com)
+- Other images made by team members
+- Music made by Pranjal Rastogi
 
 ## Copyright
 Copyright (c) 2020 Ayush Gupta, Kartikey Pandey, Pranjal Rastogi. MIT License
