@@ -1,3 +1,6 @@
+# Copyright (c) 2020 Ayush Gupta, Kartikey Pandey, Pranjal Rastogi
+# Author: Kartikey Pandey
+
 import simpleaudio as sa
 import constants as consts
 import platform
