@@ -60,7 +60,7 @@ from [Flaticon](https://www.flaticon.com/)
 - [Vintage](https://www.freepik.com/vectors/vintage) vectors created by dgim-studio - 
 [www.freepik.com](https://www.freepik.com)
 - Other images made by team members
-- Music made by Pranjal Rastogi
+- Music made by Pranjal Rastogi. The music is now available at [Soundcloud| Spacey](https://soundcloud.com/user-556068689/spacey)
 
 ## Copyright
 Copyright (c) 2020 Ayush Gupta, Kartikey Pandey, Pranjal Rastogi [Team elite-ra]. MIT License
